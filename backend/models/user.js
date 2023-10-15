@@ -24,6 +24,6 @@ const UserSchema = new Schema({
 })
 
 const User=mongoose.model("User",UserSchema);
-User.createIndexes(); // this will create the indexes of the items which are going to be saved inside the database , and hence prevent the duplicate data from saving
+// User.createIndexes(); // this will create the indexes of the items which are going to be saved inside the database , and hence prevent the duplicate data from saving
 module.exports=User;
 // module.exports=mongoose.model("User",UserSchema);
