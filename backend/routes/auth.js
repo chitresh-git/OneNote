@@ -6,12 +6,16 @@ const User = require("../models/user")
 const bcryptjs = require("bcryptjs") // this package helps to generate password hash and add salt feature to it 
 const jwt = require("jsonwebtoken") // this package generates the json web token for our users
 const jwt_secret = "cm_code" // this a secret key which helps us to verify json web token 
+var fetchuser=require("../middleware/fetchuser")
+
 
 // _________________________________________________________________________________________________________
 
 
-//creating a user a post "/api/auth/createuser"        -login is not required here 
-router.post("/createuser", [ // this end point is used when we create new user
+// ROUTE-1
+//creating a post ENDPOINT "/api/auth/createuser"        -login is not required here 
+ // this end point is used when we create new user
+router.post("/createuser", [
   body('name', 'enter a valid name').isLength({ min: 3 }), // conditions for validations of user personal information
   body('email', 'enter a valid email ').isEmail(),
   body("password", "password length must be more than 5 characters ").isLength({ min: 5 }),
@@ -62,11 +66,11 @@ router.post("/createuser", [ // this end point is used when we create new user
 // _____________________________________________________________________________________________________________
 
 
-
+// ROUTE-2
   // creating end point which is used when user login in our website 
-  //  this post endpoint is used "/api/auth/login"
+  //  this post endpoint is accessed as "/api/auth/login"
 
-  router.post("/login", [ // this end point is used when we create new user
+  router.post("/login", [ 
 
     body('email', 'enter a valid email ').isEmail(),
     body("password", "password can not be blank").exists(), // check if passsword is not remain blank
@@ -105,13 +109,35 @@ router.post("/createuser", [ // this end point is used when we create new user
 
       res.json({ authtoken }) // sending the token back to the client 
 
-    }  catch (err) {
-
+    } catch (err) {
       console.error(err)
       res.status(300).send("some error had occured")
     }
 
   } )
+
+  // ______________________________________________________________________________________________________________
+
+  // ROUTE-3
+  // this enpoint will fetch the details of user using jwt token
+    //  this post endpoint is accessed as "/api/auth/getuser"
+
+  router.post("/getuser",fetchuser, async (req, res) => {
+
+  try {
+    userid=req.user.id;
+    const user=await User.findById(userid).select('-password')
+    res.send(user);
+
+    
+  } catch (err) {
+    console.error(err)
+    res.status(300).send("some error had occured")
+  }
+
+})
+
+
 
 
     // const customer=User(req.body) // fetching the data of the user from the site using post method 
