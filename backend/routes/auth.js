@@ -125,8 +125,8 @@ router.post("/createuser", [
   router.post("/getuser",fetchuser, async (req, res) => {
 
   try {
-    userid=req.user.id;
-    const user=await User.findById(userid).select('-password')
+    userid=req.user.id; // fetching the user id from our token
+    const user=await User.findById(userid).select('-password') // fetching the user details(except password ) using user ID 
     res.send(user);
 
     
@@ -136,8 +136,6 @@ router.post("/createuser", [
   }
 
 })
-
-
 
 
     // const customer=User(req.body) // fetching the data of the user from the site using post method 

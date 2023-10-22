@@ -1,19 +1,25 @@
 const mongoose = require("mongoose")
+const {Schema}=mongoose;
 // creating the scheam for users notes
 
 const NoteSchema = new Schema({
 
+    user:{
+            type: mongoose.Schema.Types.ObjectId,
+            ref:"User"
+    },
+
 title: {
-    type: string,
+    type: String,
         require: true
 },
 description: {
-    type: string,
+    type: String,
         require: true,
             uique: true
 },
 tag: {
-    type: string,
+    type: String,
         require: true
 },
 Date: {
