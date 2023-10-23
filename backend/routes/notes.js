@@ -43,5 +43,32 @@ router.post("/addnotes", [
 }
 })
 
+router.put("/updatenote/:id", fetchuser, async (req, res) => {
+
+    const{title,description,tag}=req.body;// performing the destructuring of the data entered by the client 
+    
+    // creatinng a newNote object;
+    const newNote={}
+
+    if(title){newNote.title=title}   // updating the new data into the note object
+    if(description){newNote.description=description}
+    if(tag){newNote.tag=tag}
+
+    let note=await notes.findById(req.params.id); // fetching the note from the data base using note id 
+   
+    if(!note){res.status(400).send("note not found ")} // note not found for the user 
+
+    if(note.user.toString()!=req.user.id){ // checking wether the fetched note is going to update by the correct user or not 
+        return res.status(402).send("this note does not belongs intended user")
+    }
+
+    updatedNote=await notes.findByIdAndUpdate(req.params.id,{$set:newNote},{new:true}) // saving the updated note into the database 
+
+    res.send(updatedNote);// sending the updated note back to the client 
+
+
+    
+})
+
 
 module.exports = router;
