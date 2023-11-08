@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Navbar from './components/Navbar'
 import About from './components/About'
@@ -10,12 +10,15 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import NoteState from './context/notes/NoteState';
 
 
 function App() {
   return (
 
     <>
+    <NoteState>
+
     <Router>
    <Navbar/>
     <Routes>
@@ -24,6 +27,7 @@ function App() {
 
     </Routes>
     </Router>
+    </NoteState>
     </>
   );
 }
