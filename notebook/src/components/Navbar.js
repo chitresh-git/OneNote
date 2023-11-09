@@ -1,11 +1,16 @@
-import React from 'react'
+import {React , useEffect} from 'react'
 import { Link } from "react-router-dom";
-
+import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
+  const location=useLocation() // Returns the current location object, which represents the current URL in web browsers.
+  useEffect(()=>{
+    console.log(location)
+  },[location])
+
   return (
     <div>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,10 +19,12 @@ const Navbar = () => {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-        <Link id='title'class="nav-link active" to="/">HOME</Link>
+        <Link id='title'class={`nav-link ${location.pathname==="/"?"active":""}`} to="/">HOME</Link> 
+        {/* location.pathname returns current path or current url */}
+        {/* when we click on home only then home link seems to be active with the help of location.pathname  */}
         </li>
         <li class="nav-item">
-        <Link id='title'class="nav-link active" to="/about">about</Link>
+        <Link id='title'class={`nav-link ${location.pathname==="/about"?"active":""}`} to="/about">about</Link>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
