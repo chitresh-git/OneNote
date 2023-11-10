@@ -12,6 +12,7 @@ import {
   Route,
 } from "react-router-dom";
 import NoteState from './context/notes/NoteState';
+import Alert from './components/Alert';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
 
     <Router>
    <Navbar/>
+   <Alert/>
    <div className="container">
 
     <Routes>
