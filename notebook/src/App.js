@@ -2,6 +2,7 @@
 import './App.css';
 import Navbar from './components/Navbar'
 import About from './components/About'
+import Note from './components/Note'
 
 import Home from './components/Home'
 
@@ -28,6 +29,7 @@ function App() {
     <Route exact path='/about'  element={<About/>}/>
 
     </Routes>
+<Note/>
    </div>
     </Router>
     </NoteState>
