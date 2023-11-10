@@ -2,6 +2,8 @@ import {React , useEffect} from 'react'
 import { Link } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 
+// component for navigation bar 
+
 const Navbar = () => {
   const location=useLocation() // Returns the current location object, which represents the current URL in web browsers.
   useEffect(()=>{

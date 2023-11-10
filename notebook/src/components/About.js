@@ -1,4 +1,5 @@
 import React from 'react'
+// component for about our application
 
 const About = () => {
   return (

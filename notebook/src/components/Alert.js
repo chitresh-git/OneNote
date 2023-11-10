@@ -1,4 +1,5 @@
 import React from 'react'
+// component for showing the alert message 
 
 const Alert = () => {
     return (
