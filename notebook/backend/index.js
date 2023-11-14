@@ -1,11 +1,13 @@
 const connectTomongo=require("./db");
+const express = require('express')
+var cors=require('cors')
 
 connectTomongo();
 
-const express = require('express')
 const app = express()
 const port = 3000
 
+app.use(cors())
 app.use(express.json()); // this is the middle ware for using req.body in auth.js
 
 // app.get('/', (req, res) => {

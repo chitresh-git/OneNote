@@ -11,3 +11,42 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+i{
+  cursor: pointer;
+
+  
+}
+#delete:hover{
+  
+  transform: scale(1.2);
+  transition: all 0.2s;
+}
+
+#notetitle{
+  /* border:  0.01vw  solid black; */
+  background-color: rgb(244, 244, 244);
+  /* box-shadow: 0.1vw 2vw 2vw rgb(227, 227, 227); */
+  padding: 0.3vw;
+  text-align: center;
+  /* text-decoration: solid; */
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+ 
+}
+
+
+#noteitem{
+  border: 0.1vw solid black;
+  height: 15vw;
+  overflow: auto;
+}
+#noteitem:hover{
+box-shadow: 0.1vw 0.1vw 0.5vw rgb(0, 0, 0);
+transform: scale(1.03);
+background-color: rgb(244, 244, 244);
+
+}
+
+
