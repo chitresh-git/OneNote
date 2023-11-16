@@ -13,6 +13,7 @@ const Addnote = () => {
   const handleClick = (e) => {
     e.preventDefault(); // this will prevent the page from reloading
     addnote(note.title, note.description, note.tag) // this call the addnote method of notestate.js
+    setNote({ title: "", description: "", tag: "" })
   }
   const onChange = (e) => {
     setNote({ ...note, [e.target.name]: e.target.value }) // this will update targets(title,desc) value as soon as they are change
@@ -24,22 +25,23 @@ const Addnote = () => {
 
         <h1>add notes</h1>
         <form>
-          <div className="form-group my-3">
+          <div className="form-group my-4">
             <label for="title">TITLE</label>
-            <input type="text" className="form-control" id="title" name='title' onChange={onChange} aria-describedby="emailHelp" placeholder="Enter title" />
+            <input type="text" className="form-control my-1" id="title" name='title' onChange={onChange} aria-describedby="emailHelp" placeholder="Enter title" value={note.title}minLength={5} required/>
 
           </div>
-          <div className="form-group">
+          <div className="form-group my-4">
             <label for="description">DESCRIPTION</label>
-            <input type="text" className="form-control" id="description" name='description' onChange={onChange} placeholder="Enter description" />
+            <input type="text" className="form-control my-1" id="description" name='description' onChange={onChange} placeholder="Enter description"  value={note.description} minLength={5} required/>
           </div>
-          <div className="form-group">
+          <div className="form-group my-4">
             <label for="tag">TAG</label>
-            <input type="text" className="form-control" id="tag" name='tag' onChange={onChange} placeholder="Enter tag" />
+            <input type="text" className="form-control my-1" id="tag" name='tag' onChange={onChange} placeholder="Enter tag" value={note.tag}  minLength={5} required/>
           </div>
 
 
-          <button type="submit" className="btn btn-primary" onClick={handleClick}>Submit</button>
+          <button disabled={note.title.length<5 || note.description.length<5}type="submit" className="btn btn-primary" onClick={handleClick}>Submit</button>
+          {/* if lenght of title or description is lesst than 5 then we will disabled the submit button */}
         </form>
 
 

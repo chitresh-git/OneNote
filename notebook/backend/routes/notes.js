@@ -73,7 +73,7 @@ router.put("/updatenote/:id", fetchuser, async (req, res) => {
 
         res.send(updatedNote);// sending the updated note back to the client 
     } catch (error) {
-        console.error(err)
+        console.error(error)
         res.status(300).send("some error had occured")
     }
 

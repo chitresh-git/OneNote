@@ -1,4 +1,4 @@
-import React, { useEffect, useRef,useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import NoteContext from '../context/notes/NoteContext'
 import { useContext } from 'react'
 import Noteitem from './Noteitem'
@@ -6,15 +6,20 @@ import Addnote from './Addnote'
 
 // component for exrtacting all the notes , and showing every note one by one using cards 
 
+/* hierarchy 
+fetchnote() -> setnote(json) -> value of conext api = notes -> in Note.js -> extracting context api -> notes.map(note) -> calling Noteitem component & sending updatenote as a prop along with it -> Noteitem calls the updatenote(note) method -> -> updatenote() method calls the modal for editing -> modal submit button calls the editnote() method of notestate.js which updates the note -> In last editnote() calls agian fetchnote() method */
+// hence completing the cycle
+
 const Notes = () => {
-    const context = useContext(NoteContext)
-    const { notes, fetchnote } = context
+    const context = useContext(NoteContext)     // context api recieving from notestate.js
+    const { notes, fetchnote, editnote } = context // fetching the notes state and fetchnote , editnote methods of context api
+
     useEffect(() => {
-        fetchnote()
+        fetchnote()  // this will calls the fetchnote method of notestate.js 
     }, [])
 
     const ref = useRef(null)// this will assign refernce to the objects 
-    const [note, setNote] = useState({ title: "", description: "", tag: "" }) // state for new note 
+    const [selectednote, setNote] = useState({ id: "", title: "", description: "", tag: "" }) // state for new note 
 
 
     const updatenote = (currentNote) => {
@@ -27,13 +32,15 @@ const Notes = () => {
     }
 
     const handleClick = (e) => {
-        e.preventDefault(); // this will prevent the page from reloading
+        console.log(selectednote._id)
+        editnote(selectednote._id, selectednote.title, selectednote.description, selectednote.tag)
+        // e.preventDefault(); // this will prevent the page from reloading
     }
 
-      const onChange = (e) => {
-        setNote({ ...note, [e.target.name]: e.target.value }) // this will update targets(title,desc) value as soon as they are change
+    const onChange = (e) => {
+        setNote({ ...selectednote, [e.target.name]: e.target.value }) // this will update targets(title,desc) value as soon as they are change
         //and also update the note state 
-      }
+    }
 
     return (
         <div>
@@ -42,17 +49,17 @@ const Notes = () => {
 
 
 
-            <button ref={ref} type="button" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button ref={ref} type="button" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
                 Launch demo modal {/* target the button with useReference  */}
             </button>
-           
 
 
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
+
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Update Your Note</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -61,19 +68,19 @@ const Notes = () => {
                             <form>
                                 <div className="form-group my-3">
                                     <label for="title">TITLE</label>
-                                    <input type="text" className="form-control" id="title" name='title' value={note.title} onChange={onChange} aria-describedby="emailHelp"  />
+                                    <input type="text" className="form-control my-1" id="title" name='title' value={selectednote.title} onChange={onChange} aria-describedby="emailHelp" />
 
                                 </div>
-                                <div className="form-group">
+                                <div className="form-group my-3">
                                     <label for="description">DESCRIPTION</label>
-                                    <input type="text" className="form-control" id="description" name='description' value={note.description} onChange={onChange}  />
+                                    <input type="text" className="form-control my-1" id="description" name='description' value={selectednote.description} onChange={onChange} />
                                 </div>
-                                <div className="form-group">
+                                <div className="form-group my-3">
                                     <label for="tag">TAG</label>
-                                    <input type="text" className="form-control" id="tag" name='tag' value={note.tag} onChange={onChange}  />
+                                    <input type="text" className="form-control my-1" id="tag" name='tag' value={selectednote.tag} onChange={onChange} />
                                 </div>
-                             
-                             
+
+
                             </form>
 
 
@@ -82,16 +89,18 @@ const Notes = () => {
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">update note</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
+                            <button disabled={selectednote.title.length<5 || selectednote.description.length<5}type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={handleClick}>UPDATE</button>
                         </div>
                     </div>
                 </div>
             </div>
 
             <h1>YOUR NOTES </h1>
+            <div className="container">
+                {notes.length===0 && "NO NOTES TO DISPLAY"}
+            </div>
             <div className='row my-3'>
-
                 {notes.map((note) => { // this will call Noteitem component for each note 
                     return <Noteitem note={note} updatenote={updatenote} />
                 })}
