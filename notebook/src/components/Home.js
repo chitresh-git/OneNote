@@ -1,4 +1,5 @@
 import React from 'react'
+import Note from './Note'
 
 // component for our home 
 
@@ -7,7 +8,7 @@ const Home = () => {
 
   return (
     <div>
-    
+    <Note/>
     </div>
   )
 }

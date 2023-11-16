@@ -2,6 +2,7 @@ import NoteContext from "./NoteContext";
 import { useState } from "react";
 // component for client side CRUD operations of our notes 
 const NoteState=(props)=>{
+
   const host="http://localhost:3000"
     const initailNote=[]
 
@@ -49,6 +50,8 @@ const NoteState=(props)=>{
           'auth-token':"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjUyZThkNmUwMTg1MzMyYjVkNDE4ZWYwIn0sImlhdCI6MTY5Nzk3ODIxOX0.soY96BSIxPkiiEIobEz5RFuSZN_F5Ynw2cj8Rkb2A8A"
         }
       });
+     await response.json()
+  
       const newnote=notes.filter((note)=>{return note._id!==id}) // if note id is present in the database then it will get deleted 
       setNote(newnote)    // update the notes state
 
@@ -56,7 +59,7 @@ const NoteState=(props)=>{
 
 
     const editnote=async (id, title, description,tag)=>{
-      console.log(id)
+    
       const response= await fetch(`${host}/api/notes/updatenote/${id}`,{
         method:'PUT',
         mode: 'cors', // set mode to the cors otherwise request sents the bad request 
@@ -71,16 +74,18 @@ const NoteState=(props)=>{
       let editednote= await JSON.parse(JSON.stringify(notes))
 
 
-      for(let index=0;index<editednote.length;index++){
+      for(let index=0;index<editednote.length;index++){ // iterating through all the notes fetching from the database 
         const element=editednote[index];
-        if(element._id===id){
+
+        if(element._id===id){ // and when note selected by the client matches with the note database , then we update that note using client entered details
              editednote.title=title;
              editednote.description=description;
              editednote.tag=tag;
              break
         }
       }
-      setNote(editednote);
+      await response.json()
+      setNote(editednote); // updating the state of note
       fetchnote(); // this will reload the page with new edited notes 
 
     }

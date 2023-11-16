@@ -13,6 +13,7 @@ import {
 } from "react-router-dom";
 import NoteState from './context/notes/NoteState';
 import Alert from './components/Alert';
+import Login from './components/Login';
 
 
 function App() {
@@ -29,9 +30,10 @@ function App() {
     <Routes>
     <Route exact path='/'  element={<Home/>}/>
     <Route exact path='/about'  element={<About/>}/>
+    <Route exact path='/login'  element={<Login/>}/>
 
     </Routes>
-<Note/>
+
    </div>
     </Router>
     </NoteState>
