@@ -1,13 +1,22 @@
-import React from 'react'
-// component for showing the alert message 
+import React, { useContext } from 'react'
+import Alertcont from '../context/notes/Alertcont'
 
-const Alert = () => {
-    return (
-        <div>
-            <div className="alert alert-primary" role="alert">
-                This is a primary alert—check it out!
+
+function Alert(prop) {
+const context=useContext(Alertcont)
+const {display,alerttext}=context
+  return (
+
+      <div id='p2' style={{height : "1vw",display:display,position:"static"}}> 
+      <div className="alert alert-primary alert-dismissible fade show" role="alert">
+               {/* {prop.alert} */}
+              <strong>{alerttext}</strong>
+               
             </div>
-        </div>
+      </div>
+
+
+      
     )
 }
 

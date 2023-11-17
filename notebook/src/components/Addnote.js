@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import NoteContext from '../context/notes/NoteContext'
 import { useContext } from 'react'
+import Alertcont from '../context/notes/Alertcont'
 
 // component htmlFor adding new note in our database 
 
@@ -8,10 +9,14 @@ const Addnote = () => {
   const context = useContext(NoteContext) // context api
   const { addnote } = context              // exracting the value of context api which contains state or method 
 
+  const context2=useContext(Alertcont)
+  const {usealert}=context2
+
   const [note, setNote] = useState({ title: "", description: "", tag: "" }) // state htmlFor new note 
 
   const handleClick = (e) => {
     e.preventDefault(); // this will prevent the page from reloading
+    usealert("Note Added")
     addnote(note.title, note.description, note.tag) // this call the addnote method of notestate.js
     setNote({ title: "", description: "", tag: "" }) // empty the input fields as soon as client submits its details 
   }

@@ -3,6 +3,8 @@ import NoteContext from '../context/notes/NoteContext'
 import { useContext } from 'react'
 import Noteitem from './Noteitem'
 import Addnote from './Addnote'
+import Alertcont from '../context/notes/Alertcont'
+import { useNavigate } from 'react-router-dom'
 
 // component For exrtacting all the notes , and showing every note one by one using cards 
 
@@ -11,11 +13,20 @@ fetchnote() -> setnote(json) -> value of conext api = notes -> in Note.js -> ext
 // hence completing the cycle
 
 const Notes = () => {
+    let navigate=useNavigate()
     const context = useContext(NoteContext)     // context api recieving from notestate.js
     const { notes, fetchnote, editnote } = context // fetching the notes state and fetchnote , editnote methods of context api
+    const context2 = useContext(Alertcont)
+    const {usealert}=context2
 
     useEffect(() => {
-        fetchnote()  // this will calls the fetchnote method of notestate.js 
+        if(localStorage.getItem('token')){
+
+            fetchnote()  // this will calls the fetchnote method of notestate.js 
+        }
+        else{
+            navigate("/login")
+        }
        
     }, []) // eslint-disable-line react-hooks/exhaustive-deps   
     // the above comment will remove warning caused by the useEffect hooks
@@ -34,7 +45,7 @@ const Notes = () => {
     }
 
     const handleClick = (e) => {
-   
+        usealert("Note Updated")
         editnote(selectednote._id, selectednote.title, selectednote.description, selectednote.tag)
         // e.preventDefault(); // this will prevent the page from reloading
     }
