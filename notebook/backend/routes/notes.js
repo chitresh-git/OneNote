@@ -105,7 +105,7 @@ router.delete("/deletenote/:id", fetchuser, async (req, res) => {
 
         res.json({"note":" has bees successfully deleted",note:deletedNote});// sending the deleted note back to the client 
     } catch (error) {
-        console.error(err)
+        console.error(error)
         res.status(300).send("some error had occured")
     }
 

@@ -25,7 +25,7 @@ const Notes = () => {
             fetchnote()  // this will calls the fetchnote method of notestate.js 
         }
         else{
-            navigate("/login")
+            navigate("/home")
         }
        
     }, []) // eslint-disable-line react-hooks/exhaustive-deps   
@@ -57,7 +57,7 @@ const Notes = () => {
 
     return (
         <div>
-            <Addnote />
+           
             {/* addnote component */}
 
 
@@ -68,9 +68,9 @@ const Notes = () => {
 
 
 
-            <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div className="modal fade bg-dark" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered" role="document">
-                    <div className="modal-content">
+                    <div className="modal-content ">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">Update Your Note</h5>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -103,16 +103,19 @@ const Notes = () => {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
-                            <button disabled={selectednote.title.length<5 || selectednote.description.length<5}type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={handleClick}>UPDATE</button>
+                            <button disabled={selectednote.title.length<5 || selectednote.description.length<5}type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={handleClick}>UPDATE</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <h1>YOUR NOTES </h1>
+            <h1 className='m-3'>YOUR NOTES </h1>
+            <h3>
+
             <div className="container">
                 {notes.length===0 && "NO NOTES TO DISPLAY"}
             </div>
+            </h3>
             <div className='row my-3'>
                 {notes.map((note) => { // this will call Noteitem component htmlFor each note 
                     return <Noteitem note={note} updatenote={updatenote} />

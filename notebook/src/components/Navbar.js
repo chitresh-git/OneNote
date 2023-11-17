@@ -12,38 +12,42 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark" id='navbar'>
   <div className="container-fluid">
-    <a className="navbar-brand" href="#">Navbar</a>
+    <Link className="navbar-brand" to="/">OneNote</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-        <Link id='title'className={`nav-link ${location.pathname==="/"?"active":""}`} to="/">HOME</Link> 
+       
+        <Link id='title'className={`nav-link ${location.pathname==="/"?"active":""}`} to="/">HOME</Link>
         {/* location.pathname returns current path or current url */}
         {/* when we click on home only then home link seems to be active with the help of location.pathname  */}
         </li>
         <li className="nav-item">
-        <Link id='title'className={`nav-link ${location.pathname==="/about"?"active":""}`} to="/about">about</Link>
+        <Link id='title'className={`nav-link ${location.pathname==="/about"?"active":""}`} to="/about">ABOUT</Link>
+        </li>
+        <li className="nav-item">
+        <Link id='title'className={`nav-link ${location.pathname==="/dashboard"?"active":""}`} to={`${localStorage.getItem('token')==null?"/":"/dashboard"}`}>DASHBOARD</Link> 
         </li>
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+              More
           </a>
           <ul className="dropdown-menu">
            
-            <li><a className="dropdown-item" href="#">Something else here</a></li>
+            <li><Link className="dropdown-item" to="/about">Contact</Link></li>
           </ul>
         </li>
-        <li className="nav-item">
-          <a className="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li>
+
       </ul>
         
-      <Link className="btn btn-primary" to="/login" role="button">Login</Link>
-      <Link className="btn btn-primary mx-2" to="/signup" role="button">SignUp</Link>
+     {!localStorage.getItem('token') ? <form className="d-flex"> 
+     {/* <Link className="btn btn-primary" to="/login" role="button">Login</Link>
+      <Link className="btn btn-primary mx-2" to="/signup" role="button">SignUp</Link> */}
+      </form> : <Link className="btn btn-secondary mx-3" onClick={()=>{localStorage.removeItem('token')}} to="/" role="button">LogOut</Link> }
     </div>
   </div>
 </nav>

@@ -19,6 +19,9 @@ import NoteState from './context/notes/NoteState';
 import Alert from './components/Alert';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import Dashboard from './components/Dashboard';
+import Addnote from './components/Addnote';
+import Notes from './components/Note';
 
 
 function App(props) {
@@ -48,6 +51,10 @@ useEffect(() => {
     <Route exact path='/about'  element={<About/>}/>
     <Route exact path='/login'  element={<Login/>}/>
     <Route exact path='/signup'  element={<Signup/>}/>
+    <Route exact path='/dashboard'  element={<Dashboard/>}/>
+    <Route exact path='/addnote'  element={<Addnote/>}/>
+    <Route exact path='/shownote'  element={<Notes/>}/>
+
 
     </Routes>
 

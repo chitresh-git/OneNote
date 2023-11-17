@@ -9,8 +9,8 @@ const Addnote = () => {
   const context = useContext(NoteContext) // context api
   const { addnote } = context              // exracting the value of context api which contains state or method 
 
-  const context2=useContext(Alertcont)
-  const {usealert}=context2
+  const context2 = useContext(Alertcont)
+  const { usealert } = context2
 
   const [note, setNote] = useState({ title: "", description: "", tag: "" }) // state htmlFor new note 
 
@@ -26,26 +26,31 @@ const Addnote = () => {
   }
   return (
     <div>
-      <div className="container my-2">
+      <div className="container my-3">
 
-        <h1>add notes</h1>
-        <form>
-          <div className="form-group my-4">
+        <h1>Add Note</h1>
+        <form className='bg-dark text-white p-2 rounded'>
+          <div className="form-group m-3">
             <label htmlFor="title">TITLE</label>
-            <input type="text" className="form-control my-1" id="title" name='title' onChange={onChange} aria-describedby="emailHelp" placeholder="Enter title" value={note.title}minLength={5} required/>
+            <input type="text" className="form-control my-2" id="title" name='title' onChange={onChange} aria-describedby="emailHelp" placeholder="Enter title" value={note.title} minLength={5} required />
 
           </div>
-          <div className="form-group my-4">
+          {/* <div className="form-floating m-3">
             <label htmlFor="description">DESCRIPTION</label>
-            <input type="text" className="form-control my-1" id="description" name='description' onChange={onChange} placeholder="Enter description"  value={note.description} minLength={5} required/>
+            <input type="text" className="form-control my-2" id="description" name='description' onChange={onChange} placeholder="Enter description"  value={note.description} minLength={5} required/>
+          </div> */}
+       
+          <div class="m-3">
+          <label htmlFor="description">DESCRIPTION</label>
+            <textarea class="form-control my-2" id="exampleFormControlTextarea1" rows="3" name='description' onChange={onChange} placeholder="Enter description"  value={note.description} minLength={5} required></textarea>
           </div>
-          <div className="form-group my-4">
+          <div className="form-group m-3">
             <label htmlFor="tag">TAG</label>
-            <input type="text" className="form-control my-1" id="tag" name='tag' onChange={onChange} placeholder="Enter tag" value={note.tag}  minLength={5} required/>
+            <input type="text" className="form-control my-2" id="tag" name='tag' onChange={onChange} placeholder="Enter tag" value={note.tag} minLength={5} required />
           </div>
 
 
-          <button disabled={note.title.length<5 || note.description.length<5}type="submit" className="btn btn-primary" onClick={handleClick}>Submit</button>
+          <button disabled={note.title.length < 5 || note.description.length < 5} type="submit" className="btn btn-secondary m-3" onClick={handleClick}>Submit</button>
           {/* if lenght of title or description is lesst than 5 then we will disabled the submit button */}
         </form>
 

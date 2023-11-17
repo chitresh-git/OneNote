@@ -31,7 +31,7 @@ const Login = (props) => {
       // eslint-disable-line react-hooks/exhaustive-deps  
       localStorage.setItem('token',json.authtoken)
       usealert("logged in")
-      navigate("/") // this will redirect to the defualt page 
+      navigate("/dashboard") // this will redirect to the defualt page 
     }
     else {
       console.log("not")
@@ -48,7 +48,7 @@ const Login = (props) => {
 
   return (
     <div className="container">
-      <h2>LOGIN</h2>
+      <h2 className='my-3'>LOGIN</h2>
       <div className='text-white bg-dark p-3 rounded my-2'>
 
         <form onSubmit={handleClick}>
