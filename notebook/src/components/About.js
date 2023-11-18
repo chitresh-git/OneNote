@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 // component for about our application
 import {useTypewriter,Cursor} from 'react-simple-typewriter';
+import './css/about.css'
 
 const About = () => {
 
@@ -11,7 +12,7 @@ const About = () => {
   });
   return (
     <div>
-      <section>
+      <section2>
       <h1 id='titlename'>
     OneNote &nbsp;
     <span id='author'>-By CHITRESH</span>
@@ -20,7 +21,7 @@ const About = () => {
         {text}
         <Cursor/>
         </h2>
-      </section>
+      </section2>
 
       <div class="card cardlogin bg-dark text-white " >
 

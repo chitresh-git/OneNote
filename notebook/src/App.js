@@ -22,6 +22,7 @@ import Signup from './components/Signup';
 import Dashboard from './components/Dashboard';
 import Addnote from './components/Addnote';
 import Notes from './components/Note';
+import Userdetail from './components/Userdetail';
 
 
 function App(props) {
@@ -54,6 +55,7 @@ useEffect(() => {
     <Route exact path='/dashboard'  element={<Dashboard/>}/>
     <Route exact path='/addnote'  element={<Addnote/>}/>
     <Route exact path='/shownote'  element={<Notes/>}/>
+    <Route exact path='/userdetail'  element={<Userdetail/>}/>
 
 
     </Routes>

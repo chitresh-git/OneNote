@@ -1,0 +1,81 @@
+section3::before {
+    /* this is the second image of the page */
+    
+    opacity: 1;
+    z-index: -1;
+    background-image: url(https://images.unsplash.com/photo-1623697899808-80f1a17372be?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-repeat: no-repeat;
+    /* background-size: 60vw;
+    height: 45vw;
+    width: 60vw; */
+    background-size: 70vw;
+    height: 45vw;
+    width: 64vw;
+    position: absolute;
+    left: 0vw;
+    content: "";
+  
+    
+    /* animation: backpic 50s infinite; */
+  }
+  
+  section3{
+    /* background-color: black; */
+    z-index: 1;
+  }
+  
+  
+  .cardlogin{
+    width: 23vw;
+    float: right;
+    text-align: center;
+    display: inline;
+    top: 5vw;
+    border-radius: 3vw;
+    border:0.1vw solid white;
+  }
+  
+  
+  .divide{
+    background-color: white;
+    height: 1vw;
+  }
+  
+  .cardlogin:hover{
+    /* box-shadow: 1vw 1vw 1vw black; */
+    transform: scale(1.01);
+  }
+
+  #titlenameud{
+    padding-top: 1.5vw;
+     font-size:6vw;
+     font-family: 'Kdam Thmor Pro', sans-serif;
+     color: white;
+     text-shadow: 0.1vw 0.1vw rgb(0, 0, 0);
+
+
+     /* float: left; */
+   }
+  #signup:hover{
+    background-color: rgb(83, 83, 83);
+    border-radius: 3vw 3vw 0vw 0vw;
+  }
+  #login:hover{
+    background-color: rgb(83, 83, 83);
+    border-radius: 0vw 0vw 3vw 3vw;
+  }
+
+  #username{
+    color:yellow;
+  }
+  #thanks{
+    /* font-family: 'Roboto Mono', monospace; */
+    color: white;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    margin-top: 0vw;
+    float: left;
+    margin-left: 15vw;
+    text-shadow: 0.1vw 0.1vw rgb(0, 0, 0);
+    /* display: flex; */
+  }
+  

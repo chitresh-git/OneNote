@@ -26,10 +26,18 @@ const Login = (props) => {
       body: JSON.stringify({ email: cred.email, password: cred.password })
     });
     const json = await response.json()
-    console.log(json)
+
+
     if (json.flag) {
       // eslint-disable-line react-hooks/exhaustive-deps  
       localStorage.setItem('token',json.authtoken)
+      localStorage.setItem('name',json.name)
+      localStorage.setItem('email',json.email)
+      localStorage.setItem('password',json.password)
+      localStorage.setItem('date',json.date)
+
+     
+
       usealert("logged in")
       navigate("/dashboard") // this will redirect to the defualt page 
     }

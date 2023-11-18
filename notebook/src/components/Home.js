@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
-import Note from './Note'
-import '../index.css'
+import './css/home.css'
 import { Link } from 'react-router-dom';
-
 import {useTypewriter,Cursor} from 'react-simple-typewriter';
 
 // component for our home 

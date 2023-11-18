@@ -1,4 +1,4 @@
-import {React , useEffect} from 'react'
+import {React } from 'react'
 import { Link } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 
@@ -6,9 +6,6 @@ import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const location=useLocation() // Returns the current location object, which represents the current URL in web browsers.
-  useEffect(()=>{
-    console.log(location)
-  },[location])
 
   return (
     <div>
@@ -39,7 +36,7 @@ const Navbar = () => {
           <ul className="dropdown-menu">
            
             <li><Link className="dropdown-item" to="/about">Contact</Link></li>
-            <li><Link className="dropdown-item" to="/download">Contact</Link></li>
+            <li><Link className="dropdown-item" to={`${localStorage.getItem('token')==null?"/":"/userdetail"}`}>Account Details</Link></li>
           </ul>
         </li>
 

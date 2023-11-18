@@ -10,7 +10,6 @@ const Alertstate = (prop) => {
         setTimeout(() => {
             setdis("none")
         }, 1000);
-        console.log(display)
     }
     return (
        

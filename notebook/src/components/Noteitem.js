@@ -14,7 +14,8 @@ const Noteitem = (props) => {
   const { usealert } = context2
 
   const context3=useContext(Downloadcontext)
-  const {downloadTextFile}=context3
+  const {downloadTextFile,handleCopyClick}=context3
+
 
   return (
     <>
@@ -22,21 +23,23 @@ const Noteitem = (props) => {
 
 
 
-      <div className="card text-white bg-dark" id='noteitem'>
+      <div className="card text-white " id='noteitem'>
 
         <div className="card-body" >
           <h5 id="notetitle" className="card-title">{note.title}</h5>        {/* title of our note  */}
 
-          <i id="delete" className="fa-sharp fa-solid fa-trash mx-2"  onClick={() => { deletenote(note._id);  usealert("Note Deleted")  }}>
+          <i id="delete" className="fa-sharp fa-solid fa-trash mx-3" onMouseOver={()=>{usealert("delete your note")}} onClick={() => { deletenote(note._id);  usealert("Note Deleted")  }}>
            
             </i>  
 
 
           {/* the arrow function call the deletenote() method of notestate.js and note._id is passed as parameter */}
 
-          <i id="edit" className="fa-solid fa-pen-to-square mx-2 delete-icon"  onClick={() => {  updatenote(note) }} ></i>    {/* edit icon */}
+          <i id="edit" className="fa-solid fa-pen-to-square mx-3 delete-icon" onMouseOver={()=>{usealert("edit your note")}} onClick={() => {  updatenote(note) }} ></i>    {/* edit icon */}
 
-          <i id="edit" className="fa-solid fa-pen-to-square mx-2 delete-icon"  onClick={() => {  downloadTextFile(note.description) }} ></i>
+          <i id="edit" className="fa-solid fa-download mx-3 delete-icon" onMouseOver={()=>{usealert("download your note")}} onClick={() => {  downloadTextFile(note.title,note.description) }} ></i>
+
+          <i id="edit" className="fa-solid fa-copy mx-3 delete-icon" onMouseOver={()=>{usealert("copy your note")}} onClick={() => {  handleCopyClick(note.description) }} ></i>
 
 
           <hr />

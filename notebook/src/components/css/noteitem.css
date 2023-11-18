@@ -23,6 +23,7 @@
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
+    border-radius: 1vw;
    
   }
   
@@ -30,6 +31,7 @@
       border: 0.1vw solid black;
       height: 15vw;
       overflow: auto;
+      background-color: black;
     }
     ::-webkit-scrollbar {
       width: 0;
@@ -37,7 +39,7 @@
     #noteitem:hover{
   box-shadow: 0.1vw 0.1vw 0.5vw rgb(0, 0, 0);
   transform: scale(1.03);
-  background-color: rgb(36, 36, 36);
+  background-color:  rgb(54, 54, 54);
   
   }
 

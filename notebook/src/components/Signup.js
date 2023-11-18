@@ -16,7 +16,6 @@ const Signup = () => {
     
     const handleClick = async (e) => {
         e.preventDefault(); // this will prevent the page from reloading
-        console.log(cred)
         
         const response = await fetch(`${host}/api/auth/createuser`, {
             method: 'POST',
@@ -27,9 +26,14 @@ const Signup = () => {
             body: JSON.stringify({ name: cred.name, email: cred.email, password: cred.password })
         });
         const json = await response.json()
-        console.log(json)
+     
         if (json.flag) { // if flag is true then it will create a account
             localStorage.setItem('token',json.authtoken)
+            localStorage.setItem('name',json.name)
+            localStorage.setItem('email',json.email)
+            localStorage.setItem('password',json.password)
+            localStorage.setItem('date',json.date)
+
             usealert("Registered Successfully !")
             navigate("/")  // this will redirect to the defualt page 
         }

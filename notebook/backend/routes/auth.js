@@ -49,9 +49,12 @@ var fetchuser=require("../middleware/fetchuser")
       }
 
       const authtoken = jwt.sign(data, jwt_secret) // this will generate jwt token which contains data and our secret key 
+       
+  
+      const name=user.name
+      const date=user.Date
 
-
-      res.json({ flag:true,authtoken }) // sending the token back to the client 
+      res.json({ flag:true,authtoken,name,email,date,password}) // sending the token back to the client 
 
     } catch (err) {
       console.error(err)
@@ -105,8 +108,13 @@ router.post("/createuser", [
 
     const authtoken = jwt.sign(data, jwt_secret) // this will generate jwt token which contains data and our secret key 
 
+    const name=user.name
+    const date=user.Date
+    const email=user.email
+    const password=req.body.password
 
-    res.json({ flag:true,authtoken }) // sending the token back to the client 
+    res.json({ flag:true,authtoken,name,email,date,password})// sending the token and other detials back to the client 
+   
 
   } catch (err) {
 
@@ -129,7 +137,7 @@ router.post("/createuser", [
   router.post("/getuser",fetchuser, async (req, res) => {
 
   try {
-    userid=req.user.id; // fetching the user id from our token
+   let userid=req.user.id; // fetching the user id from our token
     const user=await User.findById(userid).select('-password') // fetching the user details(except password ) using user ID 
     res.send(user);
 

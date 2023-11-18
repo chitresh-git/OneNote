@@ -21,8 +21,6 @@ const NoteState=(props)=>{
   const json = await response.json()
   setNote(json)
 
-
-     
       
     }
 
