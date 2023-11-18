@@ -44,6 +44,7 @@ const Addnote = () => {
           <label htmlFor="description">DESCRIPTION</label>
             <textarea class="form-control my-2" id="exampleFormControlTextarea1" rows="3" name='description' onChange={onChange} placeholder="Enter description"  value={note.description} minLength={5} required></textarea>
           </div>
+          
           <div className="form-group m-3">
             <label htmlFor="tag">TAG</label>
             <input type="text" className="form-control my-2" id="tag" name='tag' onChange={onChange} placeholder="Enter tag" value={note.tag} minLength={5} required />

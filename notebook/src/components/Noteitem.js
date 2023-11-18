@@ -1,8 +1,9 @@
-import React, { useRef, useState } from 'react'
+
 import NoteContext from '../context/notes/NoteContext'
 import { useContext } from 'react'
 import Alertcont from '../context/notes/Alertcont'
 import './css/noteitem.css'
+import Downloadcontext from '../context/notes/Downloadcontext'
 
 // component for showing each note inside the card 
 const Noteitem = (props) => {
@@ -11,9 +12,9 @@ const Noteitem = (props) => {
   const { deletenote } = context
   const context2 = useContext(Alertcont)
   const { usealert } = context2
-  const ref=useRef(null)
- 
 
+  const context3=useContext(Downloadcontext)
+  const {downloadTextFile}=context3
 
   return (
     <>
@@ -26,12 +27,17 @@ const Noteitem = (props) => {
         <div className="card-body" >
           <h5 id="notetitle" className="card-title">{note.title}</h5>        {/* title of our note  */}
 
-          <i id="delete" className="fa-sharp fa-solid fa-trash mx-2" onClick={() => { deletenote(note._id); { usealert("Note Deleted") } }}></i>  
+          <i id="delete" className="fa-sharp fa-solid fa-trash mx-2"  onClick={() => { deletenote(note._id);  usealert("Note Deleted")  }}>
+           
+            </i>  
 
 
           {/* the arrow function call the deletenote() method of notestate.js and note._id is passed as parameter */}
 
-          <i id="edit" className="fa-solid fa-pen-to-square mx-2" onClick={() => {  updatenote(note) }} ></i>    {/* edit icon */}
+          <i id="edit" className="fa-solid fa-pen-to-square mx-2 delete-icon"  onClick={() => {  updatenote(note) }} ></i>    {/* edit icon */}
+
+          <i id="edit" className="fa-solid fa-pen-to-square mx-2 delete-icon"  onClick={() => {  downloadTextFile(note.description) }} ></i>
+
 
           <hr />
           <tag className="">- {note.tag}</tag>  {/* tag of our note  */}

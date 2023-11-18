@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Alertstate from './context/notes/Alertstate';
+import Downloadnote from './components/Downloadnote';
 
 
 
@@ -11,12 +12,14 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
 
+<Downloadnote>
 
 <Alertstate>
 
     <App />
 </Alertstate>
 
+</Downloadnote>
    
   </React.StrictMode>
 );

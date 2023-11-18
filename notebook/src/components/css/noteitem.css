@@ -44,4 +44,8 @@
   tag{
     font-weight: bolder;
   }
+
+  .modal-content{
+    background-color: rgb(164, 164, 164);
+  }
   

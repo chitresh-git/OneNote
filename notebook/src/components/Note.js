@@ -13,21 +13,21 @@ fetchnote() -> setnote(json) -> value of conext api = notes -> in Note.js -> ext
 // hence completing the cycle
 
 const Notes = () => {
-    let navigate=useNavigate()
+    let navigate = useNavigate()
     const context = useContext(NoteContext)     // context api recieving from notestate.js
     const { notes, fetchnote, editnote } = context // fetching the notes state and fetchnote , editnote methods of context api
     const context2 = useContext(Alertcont)
-    const {usealert}=context2
+    const { usealert } = context2
 
     useEffect(() => {
-        if(localStorage.getItem('token')){
+        if (localStorage.getItem('token')) {
 
             fetchnote()  // this will calls the fetchnote method of notestate.js 
         }
-        else{
+        else {
             navigate("/home")
         }
-       
+
     }, []) // eslint-disable-line react-hooks/exhaustive-deps   
     // the above comment will remove warning caused by the useEffect hooks
 
@@ -57,7 +57,7 @@ const Notes = () => {
 
     return (
         <div>
-           
+
             {/* addnote component */}
 
 
@@ -81,16 +81,23 @@ const Notes = () => {
                             <form>
                                 <div className="form-group my-3">
                                     <label htmlFor="title">TITLE</label>
-                                    <input type="text" className="form-control my-1" id="title" name='title' value={selectednote.title} onChange={onChange} aria-describedby="emailHelp" />
+                                    <input type="text" className="form-control my-1" id="title" name='title' value={selectednote.title} onChange={onChange} aria-describedby="emailHelp" required />
 
                                 </div>
-                                <div className="form-group my-3">
+                                {/* <div className="form-group my-3">
                                     <label htmlFor="description">DESCRIPTION</label>
                                     <input type="text" className="form-control my-1" id="description" name='description' value={selectednote.description} onChange={onChange} />
+                                </div> */}
+
+                                <div class="my-3">
+                                    <label htmlFor="description">DESCRIPTION</label>
+                                    <textarea class="form-control my-1" id="exampleFormControlTextarea1" rows="3" name='description' onChange={onChange}  value={selectednote.description}  required></textarea>
                                 </div>
+
+
                                 <div className="form-group my-3">
                                     <label htmlFor="tag">TAG</label>
-                                    <input type="text" className="form-control my-1" id="tag" name='tag' value={selectednote.tag} onChange={onChange} />
+                                    <input type="text" className="form-control my-1" id="tag" name='tag' value={selectednote.tag} onChange={onChange} required/>
                                 </div>
 
 
@@ -103,7 +110,7 @@ const Notes = () => {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
-                            <button disabled={selectednote.title.length<5 || selectednote.description.length<5}type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={handleClick}>UPDATE</button>
+                            <button disabled={selectednote.title.length < 5 || selectednote.description.length < 5} type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={handleClick}>UPDATE</button>
                         </div>
                     </div>
                 </div>
@@ -112,9 +119,9 @@ const Notes = () => {
             <h1 className='m-3'>YOUR NOTES </h1>
             <h3>
 
-            <div className="container">
-                {notes.length===0 && "NO NOTES TO DISPLAY"}
-            </div>
+                <div className="container">
+                    {notes.length === 0 && "NO NOTES TO DISPLAY"}
+                </div>
             </h3>
             <div className='row my-3'>
                 {notes.map((note) => { // this will call Noteitem component htmlFor each note 
