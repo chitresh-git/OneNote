@@ -44,9 +44,6 @@ const Dashboard = () => {
     words: [desc],
     loop: {}
   });
-  // console.log(notes[notes.length-1])
-  // console.log(lastnote.description)
-
 
 
 

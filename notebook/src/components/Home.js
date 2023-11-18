@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './css/home.css'
 import { Link } from 'react-router-dom';
 import {useTypewriter,Cursor} from 'react-simple-typewriter';
