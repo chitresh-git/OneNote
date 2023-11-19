@@ -35,7 +35,7 @@ const Signup = () => {
             localStorage.setItem('date',json.date)
 
             usealert("Registered Successfully !")
-            navigate("/")  // this will redirect to the defualt page 
+            navigate("/dashboard")  // this will redirect to the defualt page 
         }
         else {
             console.log("not")

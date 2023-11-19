@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import NoteContext from '../context/notes/NoteContext'
 import { useContext } from 'react'
 import Noteitem from './Noteitem'
-import Addnote from './Addnote'
 import Alertcont from '../context/notes/Alertcont'
 import { useNavigate } from 'react-router-dom'
 
@@ -81,7 +80,7 @@ const Notes = () => {
                             <form>
                                 <div className="form-group my-3">
                                     <label htmlFor="title">TITLE</label>
-                                    <input type="text" className="form-control my-1" id="title" name='title' value={selectednote.title} onChange={onChange} aria-describedby="emailHelp" required />
+                                    <input type="text" className="form-control my-1" id="title" name='title' value={selectednote.title} onChange={onChange} aria-describedby="emailHelp" minLength={2}required />
 
                                 </div>
                                 {/* <div className="form-group my-3">
@@ -91,7 +90,7 @@ const Notes = () => {
 
                                 <div class="my-3">
                                     <label htmlFor="description">DESCRIPTION</label>
-                                    <textarea class="form-control my-1" id="exampleFormControlTextarea1" rows="3" name='description' onChange={onChange}  value={selectednote.description}  required></textarea>
+                                    <textarea class="form-control my-1" id="exampleFormControlTextarea1" rows="5" name='description' onChange={onChange}  value={selectednote.description} minLength={5} required></textarea>
                                 </div>
 
 
@@ -110,7 +109,7 @@ const Notes = () => {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">CLOSE</button>
-                            <button disabled={selectednote.title.length < 5 || selectednote.description.length < 5} type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={handleClick}>UPDATE</button>
+                            <button disabled={selectednote.title.length < 2 || selectednote.description.length < 5 || selectednote.tag.length < 1} type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={handleClick}>UPDATE</button>
                         </div>
                     </div>
                 </div>

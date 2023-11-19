@@ -24,10 +24,10 @@ const Navbar = () => {
         {/* when we click on home only then home link seems to be active with the help of location.pathname  */}
         </li>
         <li className="nav-item">
-        <Link id='title'className={`nav-link ${location.pathname==="/about"?"active":""}`} to="/about">ABOUT</Link>
+        <Link id='title'className={`nav-link ${location.pathname==="/dashboard"?"active":""}`} to={`${localStorage.getItem('token')==null?"/":"/dashboard"}`}>DASHBOARD</Link> 
         </li>
         <li className="nav-item">
-        <Link id='title'className={`nav-link ${location.pathname==="/dashboard"?"active":""}`} to={`${localStorage.getItem('token')==null?"/":"/dashboard"}`}>DASHBOARD</Link> 
+        <Link id='title'className={`nav-link ${location.pathname==="/about"?"active":""}`} to="/about">ABOUT</Link>
         </li>
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

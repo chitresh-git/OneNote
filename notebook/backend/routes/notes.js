@@ -19,8 +19,8 @@ router.get("/fetchallnotes", fetchuser, async (req, res) => {
 
 // ROUTE-2 : using the post method to add the notes : http://localhost:3000/api/notes/addnote
 router.post("/addnotes", [
-    body('title', 'enter a valid title of atleast 3 chararcters').isLength({ min: 3 }), // conditions for validations of user personal information
-    body('description', 'enter a description of atleast 10 characters ').isLength({ min: 10 }),
+    body('title', 'enter a valid title of atleast 3 chararcters').isLength({ min: 2 }), // conditions for validations of user personal information
+    body('description', 'enter a description of atleast 10 characters ').isLength({ min: 5 }),
 
 ], fetchuser, async (req, res) => {
     const errors = validationResult(req);

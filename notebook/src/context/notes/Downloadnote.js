@@ -2,13 +2,15 @@ import React from 'react';
 import Downloadcontext from './Downloadcontext';
 
 import clipboardCopy from 'clipboard-copy';
-import { useContext } from 'react';
+import { useContext ,useState} from 'react';
 import Alertcont from './Alertcont';
 
 
 const Downloadnote = (props) => {
     const context2 = useContext(Alertcont)
   const { usealert } = context2
+
+  const [selectednote, setNote] = useState({ id: "", title: "", description: "", tag: "" })
 
     const downloadTextFile = (title,text) => {
       const titleData=title
@@ -28,12 +30,15 @@ const Downloadnote = (props) => {
         // alert('Text copied to clipboard!');
         usealert("Text Is Copied To Clipboard")
       };
-  
+    const handleExpand=(title,desc,tag)=>{
+    setNote({id:"",title:title,description:desc,tag:tag})
+    }
+
     return (
         <>
 
 
-<Downloadcontext.Provider value={{downloadTextFile,handleCopyClick}}> 
+<Downloadcontext.Provider value={{downloadTextFile,handleCopyClick,handleExpand,selectednote}}> 
 {props.children} 
 {/* Downloadcontext api will provide the access of all the states and methods which are assigned to the value  } */}
 </Downloadcontext.Provider>

@@ -29,7 +29,7 @@ const Dashboard = () => {
     start = ""
     count = notes.length
     const lastnote = notes[notes.length - 1]
-    ltitle = lastnote.title
+    ltitle = lastnote.title+" ,"
     desc = lastnote.description
 
 
@@ -56,7 +56,7 @@ const Dashboard = () => {
         <h2 className='lastnote '>
           {start} &nbsp;
           <div id="lasttitle">
-            {ltitle} ,
+            {ltitle} 
           <br />
           <p className='mt-1' id="typednote">
             {text}
