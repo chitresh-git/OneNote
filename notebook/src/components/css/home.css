@@ -88,4 +88,40 @@ section::before {
   .fa-brands:hover{
     color: rgb(203, 203, 203);
   }
+
+  @media (max-width: 480px) {
+    section::before {
+        background-size: 100vw;
+        height: 70vw;
+        width: 100vw;
+    }
+
+    .cardlogin {
+        width: 90vw;
+        margin: 0 auto;
+        float: none;
+        top: 2vw;
+        border-radius: 2vw;
+    }
+
+    #titlename {
+        font-size: 12vw;
+        padding-top: 4vw;
+        text-align: center;
+    }
+
+    #subtype {
+        margin-left: 0;
+        text-align: center;
+        font-size: 6vw;
+    }
+
+    .fa-brands {
+        transform: scale(1.5);
+    }
+
+    .divide {
+        height: 3vw;
+    }
+}
   
