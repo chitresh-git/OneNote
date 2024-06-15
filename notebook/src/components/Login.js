@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import Alertcont from '../context/notes/Alertcont'
 
 const Login = (props) => {
-  // const host = "http://localhost:3005"
-  const host = "https://one-note-zeta.vercel.app/"
+  const host = "http://localhost:3005"
   let navigate = useNavigate()
 
   const [cred, setCred] = useState({ email: "", password: "" })

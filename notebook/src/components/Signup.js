@@ -6,8 +6,7 @@ import Alertcont from '../context/notes/Alertcont'
 
 
 const Signup = () => {
-    // const host = "http://localhost:3005"
-    const host = "https://one-note-zeta.vercel.app/"
+    const host = "http://localhost:3005"
     let navigate = useNavigate() // creating a object for useNavigate
     
     const [cred, setCred] = useState({ name: "", email: "", password: "" })
