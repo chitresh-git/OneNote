@@ -10,7 +10,8 @@ const port = 3005
 // app.use(cors())
 
 app.use(cors({
-  origin: 'https://one-note-zeta.vercel.app/', // Adjust this to your frontend domain
+  // origin: 'https://one-note-zeta.vercel.app/', // Adjust this to your frontend domain
+  origin: 'http://localhost:3005"', // Adjust this to your frontend domain
   methods: 'GET,POST,PUT,DELETE',
   allowedHeaders: 'Content-Type,Authorization'
 }));
