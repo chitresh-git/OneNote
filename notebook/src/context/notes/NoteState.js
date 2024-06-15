@@ -3,7 +3,8 @@ import { useState } from "react";
 // component for client side CRUD operations of our notes 
 const NoteState=(props)=>{
 
-  const host="http://localhost:3005"
+  // const host="http://localhost:3005"
+  const host = "https://one-note-zeta.vercel.app/"
     const initailNote=[]
 
     const [notes,setNote]=useState(initailNote)
