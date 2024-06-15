@@ -3,7 +3,7 @@ import { useState } from "react";
 // component for client side CRUD operations of our notes 
 const NoteState=(props)=>{
 
-  const host="http://localhost:3000"
+  const host="http://localhost:3005"
     const initailNote=[]
 
     const [notes,setNote]=useState(initailNote)

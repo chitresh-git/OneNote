@@ -1,15 +1,20 @@
-import {React } from 'react'
+import {React ,useContext} from 'react'
 import { Link } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
+import Alertcont from '../context/notes/Alertcont'
+
+
 
 // component for navigation bar 
 
 const Navbar = () => {
+  const context2 = useContext(Alertcont)
+  const { usealert } = context2
   const location=useLocation() // Returns the current location object, which represents the current URL in web browsers.
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark" id='navbar'>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark " id='navbar'>
   <div className="container-fluid">
     <Link className="navbar-brand" to="/">OneNote</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +50,7 @@ const Navbar = () => {
      {!localStorage.getItem('token') ? <form className="d-flex"> 
      {/* <Link className="btn btn-primary" to="/login" role="button">Login</Link>
       <Link className="btn btn-primary mx-2" to="/signup" role="button">SignUp</Link> */}
-      </form> : <Link className="btn btn-secondary mx-3" onClick={()=>{localStorage.removeItem('token')}} to="/" role="button">LogOut</Link> }
+      </form> : <Link className="btn btn-secondary mx-3" onClick={()=>{localStorage.removeItem('token'); usealert("logged out ")}} to="/" role="button">LogOut</Link> }
     </div>
   </div>
 </nav>

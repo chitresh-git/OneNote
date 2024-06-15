@@ -9,8 +9,10 @@ const jwt_secret = "cm_code" // this a secret key which helps us to verify json 
 var fetchuser=require("../middleware/fetchuser")
 
 
+
+// _____________________________________________________________________________________________________________
 // ROUTE-1
-  // creating end point which is used when user login in our website 
+// creating end point which is used when user login in our website 
   //  this post endpoint is accessed as "/api/auth/login"
 
   router.post("/login", [ 
@@ -19,7 +21,7 @@ var fetchuser=require("../middleware/fetchuser")
     
   ], async (req, res) => {
     
-    console.log("hello")
+    
     let flag
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -47,83 +49,81 @@ var fetchuser=require("../middleware/fetchuser")
           id: user.id
         }
       }
-
+      
       const authtoken = jwt.sign(data, jwt_secret) // this will generate jwt token which contains data and our secret key 
-       
-  
+      
+      
       const name=user.name
       const date=user.Date
-
+      
       res.json({ flag:true,authtoken,name,email,date,password}) // sending the token back to the client 
-
+      
     } catch (err) {
       console.error(err)
       res.status(300).send("some error had occured")
     }
-
+    
   } )
-
-// _________________________________________________________________________________________________________
-
-
-// ROUTE-2
-//creating a post ENDPOINT "/api/auth/createuser"        -login is not required here 
- // this end point is used when we create new user
-router.post("/createuser", [
-  body('name', 'enter a valid name').isLength({ min: 3 }), // conditions for validations of user personal information
-  body('email', 'enter a valid email ').isEmail(),
-  body("password", "password length must be more than 5 characters ").isLength({ min: 5 }),
-
-], async (req, res) => {
   
-  let flag
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ flag:false,errors: errors.array() }); // if the filled data doesnt satisfies the validation conditions then this will return the error
-  }
-
-  try {
-
-    // saving only the unique data using email 
-    let user = await User.findOne({ email: req.body.email }) // this will return true if email is already exist 
-
-    if (user) {
-      return res.status(400).json({ flag:false,error: "sorry this email is already exist " }) // if user exist then we will send bad request 
+  // _________________________________________________________________________________________________________
+  
+  // ROUTE-2 
+  //creating a post ENDPOINT "/api/auth/createuser"        -login is not required here 
+   // this end point is used when we create new user
+  router.post("/createuser", [
+    body('name', 'enter a valid name').isLength({ min: 3 }), // conditions for validations of user personal information
+    body('email', 'enter a valid email ').isEmail(),
+    body("password", "password length must be more than 5 characters ").isLength({ min: 5 }),
+  
+  ], async (req, res) => {
+    
+    let flag
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ flag:false,errors: errors.array() }); // if the filled data doesnt satisfies the validation conditions then this will return the error
     }
-
-    const salt = await bcryptjs.genSalt(10) // this will generate salt for users password
-    const scurePass = await bcryptjs.hash(req.body.password, salt) // this will generate hash for the password and add salt to it
-
-    user = await User.create({ // saving the data inside the data base 
-      name: req.body.name,
-      password: scurePass,
-      email: req.body.email,
-    }).catch(err => console.log(err));
-
-    const data = {
-      user: {
-        id: user.id
+  
+    try {
+  
+      // saving only the unique data using email 
+      let user = await User.findOne({ email: req.body.email }) // this will return true if email is already exist 
+  
+      if (user) {
+        return res.status(400).json({ flag:false,error: "sorry this email is already exist " }) // if user exist then we will send bad request 
       }
+  
+      const salt = await bcryptjs.genSalt(10) // this will generate salt for users password
+      const scurePass = await bcryptjs.hash(req.body.password, salt) // this will generate hash for the password and add salt to it
+  
+      user = await User.create({ // saving the data inside the data base 
+        name: req.body.name,
+        password: scurePass,
+        email: req.body.email,
+      }).catch(err => console.log(err));
+  
+      const data = {
+        user: {
+          id: user.id
+        }
+      }
+  
+      const authtoken = jwt.sign(data, jwt_secret) // this will generate jwt token which contains data and our secret key 
+  
+      const name=user.name
+      const date=user.Date
+      const email=user.email
+      const password=req.body.password
+  
+      res.json({ flag:true,authtoken,name,email,date,password})// sending the token and other detials back to the client 
+     
+  
+    } catch (err) {
+  
+      console.error(err)
+      res.status(300).send("some error had occured")
     }
 
-    const authtoken = jwt.sign(data, jwt_secret) // this will generate jwt token which contains data and our secret key 
 
-    const name=user.name
-    const date=user.Date
-    const email=user.email
-    const password=req.body.password
-
-    res.json({ flag:true,authtoken,name,email,date,password})// sending the token and other detials back to the client 
-   
-
-  } catch (err) {
-
-    console.error(err)
-    res.status(300).send("some error had occured")
-  }
-
-
-// _____________________________________________________________________________________________________________
 
 
 
