@@ -17,7 +17,7 @@ loop:{}
 
 <div className="homecontainer">
 
-<div class="card homelogin " >
+<div class="card homelogin text-white bg-dark" >
 
   <div class="card-body" id='signup'>
     <h5 class="card-title">Signup</h5>

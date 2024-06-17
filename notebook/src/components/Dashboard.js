@@ -56,9 +56,9 @@ const Dashboard = () => {
       </div>
       <div className="right-column">
         <dash>
-          <h1 className="greeting">WELCOME</h1>
-          <h2 className='lastnote'>
-            {start}&nbsp;
+          <h1 className="greeting p-0 mb-0">WELCOME</h1>
+          <h2 className='lastnote '>
+            {/* {start}&nbsp; */}
             <div id="lasttitle">
               {ltitle}
               <br />

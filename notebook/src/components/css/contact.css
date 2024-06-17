@@ -4,7 +4,6 @@
     justify-content: center;
     align-items: center;
     height: 100vh; /* Adjust as needed */
-    background-color: #ffffff; /* Example background color */
   }
   
   .contact {
@@ -13,8 +12,7 @@
     border-radius: 3vw;
     border: 0.1vw solid white;
     transition: transform 0.3s ease; /* Smooth transform on hover */
-    background-color: black;
-    color: white;
+
   }
   
   .divide {
@@ -22,20 +20,7 @@
     height: 1vw;
   }
   
-  .contact:hover {
-    transform: scale(1.01);
-  }
-  
-
-  
-  #signup:hover {
-    background-color: rgb(41, 41, 41);
-  }
-  
-  #login:hover {
-    background-color: rgb(41, 41, 41);
-  }
-  
+ 
 
   
   /* Media query for mobile responsiveness */
@@ -48,8 +33,7 @@
     .contact {
       width: 80vw; /* Adjust width for mobile screens */
       max-width: 300px; /* Limit maximum width */
-      margin-top: 10%;
-    }
+      margin-top: 10%;    }
   
     #titlenameud {
       font-size: 10vw; /* Adjust font size for smaller screens */

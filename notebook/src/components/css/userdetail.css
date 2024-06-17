@@ -3,8 +3,6 @@
   text-align: center;
   border-radius: 3vw;
   border: 0.5vw solid rgb(255, 255, 255);
-  background-color: #000000;
-  color: white;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -16,18 +14,14 @@
   height: 1vw;
 }
 
-#signup:hover,
-#login:hover {
-  background-color: rgb(41, 41, 41);
-}
-
 @media (max-width: 768px) {
   .userinfo {
     width: 80vw;
     max-width: 95vw; /* Ensure it doesn't exceed screen width on very small devices */
-    position: static;
+    position: relative; /* Change to relative to allow it to flow in document flow */
+    top: auto;
+    left: auto;
     transform: none;
-    margin: 2vw auto;
-    margin-top: 10%;
+    margin: 10% auto; /* Adjust margin for centering */
   }
 }

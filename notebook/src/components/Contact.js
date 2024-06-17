@@ -7,7 +7,7 @@ import './css/contact.css'
 const Contact = () => {
     return (
         <div className="contact-container">
-            <div class="card   contact  " >
+            <div class="card   text-white bg-dark contact  " >
 
                 <div class="card-body" id='signup'>
                     <h5 class="card-title">GitHub</h5>

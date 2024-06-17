@@ -7,7 +7,7 @@ const Footer = () => {
         <>
            <div className="footcont">
 
-                <div class="card-header footer" >
+                <div class="card-header footer bg-dark text-white" >
                     <Link to={`mailto:${email}`} className='footer-text'>
                         <a >chitresh.cm@gamil.com</a>
                     

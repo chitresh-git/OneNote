@@ -1,42 +1,30 @@
-import React from 'react'
-import { useTypewriter, Cursor } from 'react-simple-typewriter';
-import './css/userdetail.css'
-
+import React from 'react';
+import './css/userdetail.css'; // Ensure the correct path to your CSS file
 
 const Userdetail = () => {
-    const dated= new Date(localStorage.getItem('date')).toLocaleDateString('en-US', {
-        day: 'numeric',
-        month: 'short',
-        year: '2-digit'
-    });
-    const [text] = useTypewriter({
-        words: [localStorage.getItem('name'), " For Visiting Us"],
-        loop: {}
-    });
-    return (
-    
-
-                <div class="card  userinfo" >
-
-                    <div class="card-body" id='signup'>
-                        <h5 class="card-title">Name - {localStorage.getItem('name')}</h5>
-                        <h5 class="card-title">Email - {localStorage.getItem('email')}</h5>
+  const dated = new Date(localStorage.getItem('date')).toLocaleDateString('en-US', {
+    day: 'numeric',
+    month: 'short',
+    year: '2-digit'
+  });
 
 
-                    </div>
 
-                    <div className="divide"></div>
+  return (
+    <div className="userinfo text-white bg-dark">
+      <div className="card-body p-2">
+        <h5 className="card-title">Name - {localStorage.getItem('name')}</h5>
+        <h5 className="card-title">Email - {localStorage.getItem('email')}</h5>
+      </div>
 
-                    <div class="card-body" id='login'>
-                        <h5 class="card-title"> Password - {localStorage.getItem('password')}</h5>
-                        <h5 class="card-title"> Created On-{dated}</h5>
+      <div className="divide"></div>
 
-
-                    </div>
-                </div>
-        
-       
-    )
+      <div className="card-body p-2">
+        <h5 className="card-title"> Password - {localStorage.getItem('password')}</h5>
+        <h5 className="card-title"> Created On - {dated}</h5>
+      </div>
+    </div>
+  );
 }
 
-export default Userdetail
+export default Userdetail;
