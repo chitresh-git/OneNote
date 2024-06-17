@@ -1,0 +1,9 @@
+.alerton{
+    margin-top: 0%;
+}
+@media (max-width: 768px) {
+    .alerton{
+        margin-top: 2%;
+        font-size: 3vw;
+    }
+}
