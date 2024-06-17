@@ -50,7 +50,7 @@ const formattedTime = new Date(note.Date).toLocaleTimeString('en-US', {
 
 
 
-      <div className="card text-white " id='noteitem' onClick={()=>{expand(note.title,note.description,note.tag)}}>
+      <div className="card text-white " id='noteitem' >
 
         <div className="card-body" >
           <h5 id="notetitle" className="card-title">{note.title}</h5>        {/* title of our note  */}
@@ -72,15 +72,18 @@ const formattedTime = new Date(note.Date).toLocaleTimeString('en-US', {
 
           <i id="icon" class="fa-solid fa-up-right-and-down-left-from-center mx-3" onMouseOver={()=>{usealert("expand this note")}} onClick={()=>{expand(note.title,note.description,note.tag)}}></i>
 
-          <i id="icon" class="fa-solid fa-plus mx-3" onMouseOver={()=>{usealert("add a note")}} onClick={()=>{navigate("/addnote")}}></i>
+          {/* <i id="icon" class="fa-solid fa-plus mx-3" onMouseOver={()=>{usealert("add a note")}} onClick={()=>{navigate("/addnote")}}></i> */}
 
           <hr />
+          <p onClick={()=>{expand(note.title,note.description,note.tag)}}>
+
           <tag className="">- {note.tag}</tag>  {/* tag of our note  */}
           <p className="card-text">{note.description}</p>    {/* description of our note  */}
         
         <hr />
           <p className="card-text">{formattedDate} at {formattedTime}</p>
 
+          </p>
     
         </div>
       </div>

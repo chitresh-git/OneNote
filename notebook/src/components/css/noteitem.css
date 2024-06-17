@@ -28,7 +28,7 @@
       height: 20vw;
       overflow: auto;
       background-color: black;
-      border-radius: 12vw;
+      border-radius: 5vw;
     }
     ::-webkit-scrollbar {
       width: 0;
@@ -59,6 +59,7 @@
     height: auto;
     max-height: 80vw;
     border: 0.2vw solid black;
+    border-radius: 10vw;
   }
 
   #noteitem:hover {

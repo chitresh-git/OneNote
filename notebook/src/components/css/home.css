@@ -11,6 +11,8 @@
   width: 100vw;
   /* Full width to center horizontally */
   margin-right: 30%;
+  border-radius: 5vw;
+
 
 
 
@@ -50,14 +52,14 @@
   color: rgb(203, 203, 203);
 }
 
-@media (max-width: 580px) {
+@media (max-width: 768px) {
 
 
   .homelogin {
     width: 80vw;
     margin: 1vw auto;
     /* Center horizontally and add top margin */
-    border-radius: 12vw;
+    border-radius: 10vw;
     margin-right: 12%;
 
   }
