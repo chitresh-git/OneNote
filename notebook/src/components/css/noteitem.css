@@ -28,6 +28,7 @@
       height: 20vw;
       overflow: auto;
       background-color: black;
+      border-radius: 12vw;
     }
     ::-webkit-scrollbar {
       width: 0;

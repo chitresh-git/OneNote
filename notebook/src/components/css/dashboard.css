@@ -5,7 +5,7 @@
   text-align: center;
   display: inline;
   top: 2vw;
-  border-radius: 3vw;
+  border-radius: 5vw;
   border: 0.1vw solid white;
 }
 
@@ -110,6 +110,7 @@
     float: none;
     top: 0;
     margin-right: 8%;
+    border-radius: 12vw;
   }
 
   .greeting, .lastnote, #typednote {

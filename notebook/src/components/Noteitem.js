@@ -50,7 +50,7 @@ const formattedTime = new Date(note.Date).toLocaleTimeString('en-US', {
 
 
 
-      <div className="card text-white " id='noteitem'>
+      <div className="card text-white " id='noteitem' onClick={()=>{expand(note.title,note.description,note.tag)}}>
 
         <div className="card-body" >
           <h5 id="notetitle" className="card-title">{note.title}</h5>        {/* title of our note  */}

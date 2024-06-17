@@ -26,7 +26,7 @@
   text-align: center;
   display: inline;
   top: 1vw;
-  border-radius: 3vw;
+  border-radius: 5vw;
   transition: transform 0.3s ease;
   /* Smooth transform on hover */
   margin-right: 15%;
@@ -57,7 +57,7 @@
     width: 80vw;
     margin: 1vw auto;
     /* Center horizontally and add top margin */
-    border-radius: 8vw;
+    border-radius: 12vw;
     margin-right: 12%;
 
   }
