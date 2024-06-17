@@ -26,7 +26,7 @@ const Expandnote = (props) => {
 
                     <div class="m-3">
                         <label htmlFor="description">DESCRIPTION</label>
-                        <textarea class="form-control my-2" id="exampleFormControlTextarea1" rows="8" name='description' value={selectednote.description} readOnly></textarea>
+                        <textarea class="form-control my-2" id="exampleFormControlTextarea1" rows="12" name='description' value={selectednote.description} readOnly></textarea>
                     </div>
 
                     <div className="form-group m-3">
