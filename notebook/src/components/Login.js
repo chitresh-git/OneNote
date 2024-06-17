@@ -9,6 +9,8 @@ const Login = (props) => {
 
   const [cred, setCred] = useState({ email: "", password: "" })
   const [demo, setdemo] = useState({ warning: "", visibilty: "d-none" })
+  const [loading, setLoading] = useState(false); // Loading state
+
 
   const context = useContext(Alertcont)
   const { usealert } = context
@@ -17,6 +19,7 @@ const Login = (props) => {
 
   const handleClick = async (e) => {
     e.preventDefault(); // this will prevent the page from reloading
+    setLoading(true); // Set loading state to true
 
     const response = await fetch(`${host}/api/auth/login`, {
       method: 'POST',
@@ -27,6 +30,7 @@ const Login = (props) => {
       body: JSON.stringify({ email: cred.email, password: cred.password })
     });
     const json = await response.json()
+    setLoading(false); // Set loading state to false after response
 
 
     if (json.flag) {
@@ -72,8 +76,9 @@ const Login = (props) => {
             <label id="emailHelp" className={`form-text  text-capitalize text-danger ${demo.visibilty}`}>{demo.warning}</label>
           </div>
 
-          <button type="submit" className="btn btn-secondary my-1">SUBMIT</button>
-        </form>
+          <button type="submit" className="btn btn-secondary my-2" disabled={loading}>
+                        {loading ? "SIGNING..." : "SIGN IN"}
+                    </button>        </form>
 
       </div>
     </div>

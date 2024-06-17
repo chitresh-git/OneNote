@@ -32,6 +32,18 @@ const Noteitem = (props) => {
          handleExpand(title,desc,tag)
   }
 
+  const formattedDate = new Date(note.Date).toLocaleDateString('en-US', {
+    day: 'numeric',
+    month: 'short',
+    year: '2-digit'
+});
+
+const formattedTime = new Date(note.Date).toLocaleTimeString('en-US', {
+    hour: '2-digit',
+    minute: '2-digit'
+});
+
+
   return (
     <>
     <div className='col-md-4 my-3 '>
@@ -67,12 +79,9 @@ const Noteitem = (props) => {
           <p className="card-text">{note.description}</p>    {/* description of our note  */}
         
         <hr />
-          <p className="card-text">Time-{note.Date}</p>    {/* description of our note  */}
+          <p className="card-text">{formattedDate} at {formattedTime}</p>
 
-       
-
-
-          {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
+    
         </div>
       </div>
     </div>

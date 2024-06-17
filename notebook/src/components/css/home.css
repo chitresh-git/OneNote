@@ -1,114 +1,79 @@
+/* Ensure the container takes up the full viewport height */
+/* Reset default margin and padding */
 
-section::before {
-    /* this is the second image of the page */
-    
-    opacity: 1;
-    z-index: -1;
-    /* background-image: url(https://images.unsplash.com/photo-1599008633840-052c7f756385?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG5vdGVib29rfGVufDB8fDB8fHww); */
-    background-image: url(https://images.unsplash.com/photo-1623697899808-80f1a17372be?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+.homecontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center items vertically */
+  height: 100vh; /* Full height to center vertically */
+  width: 100vw; /* Full width to center horizontally */
+  background-color: #ffffff; /* Example background color */
+  margin-right:30%;
 
-    background-repeat: no-repeat;
-    /* background-size: 60vw;
-    height: 45vw;
-    width: 60vw; */
-    background-size: 70vw;
-    height: 45vw;
-    width: 64vw;
-    position: absolute;
-    left: 0vw;
-    content: "";
+
   
-    
-    /* animation: backpic 50s infinite; */
-  }
-  
-  section {
-    /* background-color: black; */
-    z-index: 1;
-  }
-  
-  
-  .cardlogin{
-    width: 23vw;
-    float: right;
+}
+
+.homelogin {
+  margin-left:0px;
+  background-color: #000000;
+  color: white;
+  width: 23vw;
+    text-align: center;
     text-align: center;
     display: inline;
     top: 5vw;
-    border-radius: 3vw;
-    border:0.1vw solid white;
-  }
-  
-  
-  .divide{
-    background-color: white;
-    height: 1vw;
-  }
-  
-  .cardlogin:hover{
-    /* box-shadow: 1vw 1vw 1vw black; */
-    transform: scale(1.01);
-  }
-  #signup:hover{
-    background-color: rgb(83, 83, 83);
-    border-radius: 3vw 3vw 0vw 0vw;
-  }
-  #login:hover{
-    background-color: rgb(83, 83, 83);
-    border-radius: 0vw 0vw 3vw 3vw;
-  }
-  
-  #titlename{
-   padding-top: 1.5vw;
-    font-size:6vw;
-    color: rgb(255, 255, 255);
-    font-family: 'Kdam Thmor Pro', sans-serif;
-  
-    /* float: left; */
-  }
-  #type{
-    color:yellow;
-  }
-  #subtype{
-    /* font-family: 'Roboto Mono', monospace; */
-    font-family: 'Kdam Thmor Pro', sans-serif;
-    margin-top: 0vw;
-    float: left;
-    margin-left: 15vw;
-    text-shadow: 0.1vw 0.1vw rgb(0, 0, 0);
-    color: white;
-    /* display: flex; */
-  }
-  
-  
-  
-  .fa-brands{
-    color: white;
+  text-align: center;
+    display: inline;
+    top: 5vw;
+  border-radius: 3vw;
+  border: 0.1vw solid rgb(255, 57, 57);
+  transition: transform 0.3s ease; /* Smooth transform on hover */
+  margin-right:15%;
+
+}
+
+.divide {
+  background-color: white;
+  height: 0.5vw;
+}
+
+.homelogin:hover {
+  transform: scale(1.01);
+  border-radius: 3vw; 
+}
+
+#signup:hover {
+  background-color: rgb(40, 40, 40);
+  border-radius: 3vw 3vw 0vw 0vw;
+}
+
+#login:hover {
+  background-color: rgb(40, 40, 40);
+  border-radius: 0vw 0vw 3vw 3vw;
+}
+
+
+.fa-brands {
+  color: white;
   transform: scale(3);
+}
+
+.fa-brands:hover {
+  color: rgb(203, 203, 203);
+}
+
+@media (max-width: 580px) {
+
+
+  .homelogin {
+    width: 80vw;
+    margin: 2vw auto; /* Center horizontally and add top margin */
+    border-radius: 8vw;
+    margin-right:12%;
+
   }
-  .fa-brands:hover{
-    color: rgb(203, 203, 203);
-  }
 
-  @media (max-width: 480px) {
-    section::before {
-        background-size: 100vw;
-        height: 70vw;
-        width: 100vw;
-    }
-
-    .cardlogin {
-        width: 90vw;
-        margin: 0 auto;
-        float: none;
-        top: 2vw;
-        border-radius: 2vw;
-    }
-
-    #titlename {
-        font-size: 12vw;
-        padding-top: 4vw;
-        text-align: center;
-    }
 
     #subtype {
         margin-left: 0;
@@ -116,12 +81,25 @@ section::before {
         font-size: 6vw;
     }
 
-    .fa-brands {
-        transform: scale(1.5);
-    }
+  .fa-brands {
+    transform: scale(1.5);
+  }
 
-    .divide {
-        height: 3vw;
-    }
-}
+  .divide {
+    height: 3vw;
+  }
+
+  .homelogin:hover {
+    border-radius: 8vw; /* Ensure border-radius remains the same on hover */
+  }
+
+  #signup:hover {
+    background-color: rgb(31, 31, 31);
+    border-radius: 8vw 8vw 0vw 0vw;
+  }
   
+  #login:hover {
+    background-color: rgb(27, 27, 27);
+    border-radius: 0vw 0vw 8vw 8vw;
+  }
+}

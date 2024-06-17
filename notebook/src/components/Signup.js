@@ -12,11 +12,15 @@ const Signup = () => {
     
     const [cred, setCred] = useState({ name: "", email: "", password: "" })
     const [demo, setdemo] = useState({ warning: "", visibilty: "d-none" })
+    const [loading, setLoading] = useState(false); // Loading state
+
     
     const context = useContext(Alertcont) // using alert conext api 
     const { usealert } = context
     
     const handleClick = async (e) => {
+        setLoading(true); // Set loading state to true
+
         e.preventDefault(); // this will prevent the page from reloading
         
         const response = await fetch(`${host}/api/auth/createuser`, { // saving the entered detials in database by sending it to the backend through the fetch api
@@ -28,6 +32,8 @@ const Signup = () => {
             body: JSON.stringify({ name: cred.name, email: cred.email, password: cred.password }) // sending the data to the backend
         });
         const json = await response.json()
+        setLoading(false); // Set loading state to false after response
+
      
         if (json.flag) { // if flag is true then it will create a account, and storing the details in the local storage 
             localStorage.setItem('token',json.authtoken)
@@ -75,7 +81,11 @@ const Signup = () => {
                     </div>
 
 
-                    <button type="submit" className="btn btn-secondary my-2">CREATE</button>
+                   
+                     {/* Conditional rendering of button text based on loading state */}
+                     <button type="submit" className="btn btn-secondary my-2" disabled={loading}>
+                        {loading ? "Creating..." : "CREATE"}
+                    </button>
                 </form>
 
             </div>

@@ -1,0 +1,58 @@
+/* CSS for centering the contact component */
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust as needed */
+    background-color: #ffffff; /* Example background color */
+  }
+  
+  .contact {
+    width: 23vw;
+    text-align: center;
+    border-radius: 3vw;
+    border: 0.1vw solid white;
+    transition: transform 0.3s ease; /* Smooth transform on hover */
+    background-color: black;
+    color: white;
+  }
+  
+  .divide {
+    background-color: white;
+    height: 1vw;
+  }
+  
+  .contact:hover {
+    transform: scale(1.01);
+  }
+  
+
+  
+  #signup:hover {
+    background-color: rgb(41, 41, 41);
+  }
+  
+  #login:hover {
+    background-color: rgb(41, 41, 41);
+  }
+  
+
+  
+  /* Media query for mobile responsiveness */
+  @media (max-width: 768px) {
+    .contact-container {
+      height: auto; /* Allow container to adjust height based on content */
+      padding: 2vw; /* Add padding for spacing */
+    }
+  
+    .contact {
+      width: 80vw; /* Adjust width for mobile screens */
+      max-width: 300px; /* Limit maximum width */
+      margin-top: 10%;
+    }
+  
+    #titlenameud {
+      font-size: 10vw; /* Adjust font size for smaller screens */
+    }
+  }
+  

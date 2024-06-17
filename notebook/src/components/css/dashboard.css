@@ -1,93 +1,126 @@
-dash::before {
-    /* this is the second image of the page */
-    
-    opacity: 1;
-    z-index: -1;
-    background-image: url(https://images.unsplash.com/photo-1554757387-fa0367573d09?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+/* Existing CSS */
+.dashboard {
+  width: 23vw;
+  float: left;
+  text-align: center;
+  display: inline;
+  top: 2vw;
+  border-radius: 3vw;
+  border: 0.1vw solid white;
+}
 
-    background-repeat: no-repeat;
-    /* background-size: 60vw;
-    height: 45vw;
-    width: 60vw; */
-    background-size: 80vw;
-    height: 48vw;
-    width: 64vw;
-    position: absolute;
-    right: 0vw;
-    content: "";
-    top: 0vw;
-  
-    
-    /* animation: backpic 50s infinite; */
+.divide {
+  background-color: white;
+  height: 1vw;
+}
+
+.dashboard:hover {
+  transform: scale(1.01);
+}
+
+#shownote {
+  background-color: rgb(0, 0, 0);
+  border-radius: 3vw 3vw 0vw 0vw;
+}
+
+#addnote {
+  background-color: rgb(0, 0, 0);
+  border-radius: 0vw 0vw 3vw 3vw;
+}
+
+.greeting {
+  float: right;
+  font-size: 5vw;
+  margin-right: 24.5vw;
+  margin-top: 3vw;
+}
+
+.lastnote {
+  float: right;
+  width: 29vw;
+  margin-right: 20vw;
+  height: 5vw;
+}
+
+#lasttitle {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#typednote {
+  font-family: 'Nanum Gothic', sans-serif;
+  width: 29vw;
+  height: 28vw;
+  box-sizing: border-box;
+  overflow: scroll;
+  font-weight: lighter;
+  font-size: 1.7vw;
+}
+
+/* Container and column layout */
+.dashcontainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-color: #ffffff;
+}
+
+.left-column {
+  width: calc(50% - 1rem);
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.right-column {
+  width: calc(50% - 1rem);
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .dashcontainer {
+    flex-direction: column;
+    align-items: center;
+    padding: 0; 
   }
-  
-  dash {
-    /* background-color: black; */
-    z-index: 1;
-    
-  
+
+  .left-column, .right-column {
+    width: 100%;
+    margin: 0; /* Remove margins */
+    padding: 0.5rem 0; /* Adjust padding to add space between columns */
   }
-  
-  
-  .dashboard{
-    width: 23vw;
-    float: left;
+
+  .left-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .right-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 70%;
+  }
+
+  .dashboard {
+    width: auto;
+    float: none;
+    top: 0;
+  }
+
+  .greeting, .lastnote, #typednote {
+    float: none;
+    width: 80vw;
+    margin-right: 0;
     text-align: center;
-    display: inline;
-    top: 2vw;
-    border-radius: 3vw;
-    border:0.1vw solid white;
-  
   }
-  
-  
-  .divide{
-    background-color: white;
-    height: 1vw;
-  }
-  
-  .dashboard:hover{
-    /* box-shadow: 1vw 1vw 1vw black; */
-    transform: scale(1.01);
-  }
-  #shownote:hover{
-    background-color: rgb(83, 83, 83);
-    border-radius: 3vw 3vw 0vw 0vw;
-  }
-  #addnote:hover{
-    background-color: rgb(83, 83, 83);
-    border-radius: 0vw 0vw 3vw 3vw;
-  }
-  
-  .greeting{
-   float: right;
-   font-size: 5vw;
-   margin-right: 24.5vw;
-   margin-top: 3vw;
 
-
+  #typednote {
+    height: auto;
+    font-size: 3vw;
   }
-  .lastnote{
-    float: right;
-    width: 29vw;
-    margin-right: 20vw;
-    height: 5vw;
-  }
-  
-  #lasttitle{
-    font-weight: bold;
-    text-transform: uppercase;
-
-    
-  }
-  #typednote{
-    font-family: 'Nanum Gothic', sans-serif;
-    width: 29vw;
-    height: 28vw;
-    box-sizing: border-box;
-    overflow: scroll;
-    font-weight: lighter;
-    font-size: 1.7vw;
-
-  
-  }
+}

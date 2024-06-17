@@ -1,0 +1,22 @@
+/* Footer styles */
+.footer {
+    position: fixed; 
+    width: 100%; /* Full width of the viewport */
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 0.5%;
+    bottom:0.4%;
+  }
+  
+  .footer-text {
+    color: white;
+    text-decoration: none;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .footer {
+      font-size: small; /* Adjust font size for smaller screens */
+    }
+  }
+  

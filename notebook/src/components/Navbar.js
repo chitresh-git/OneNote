@@ -2,6 +2,7 @@ import {React ,useContext} from 'react'
 import { Link } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 import Alertcont from '../context/notes/Alertcont'
+import './css/navbar.css'
 
 
 
@@ -14,8 +15,8 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark " id='navbar'>
-  <div className="container-fluid">
+      <nav className="navbar navbar-expand-lg  navbar-dark bg-dark" id='navbar' >
+  <div className="container-fluid " >
     <Link className="navbar-brand" to="/">OneNote</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
@@ -40,7 +41,7 @@ const Navbar = () => {
           </a>
           <ul className="dropdown-menu">
            
-            <li><Link className="dropdown-item" to="/about">Contact</Link></li>
+            <li><Link className="dropdown-item" to="/contact">Contact</Link></li>
             <li><Link className="dropdown-item" to={`${localStorage.getItem('token')==null?"/":"/userdetail"}`}>Account Details</Link></li>
           </ul>
         </li>
@@ -50,7 +51,7 @@ const Navbar = () => {
      {!localStorage.getItem('token') ? <form className="d-flex"> 
      {/* <Link className="btn btn-primary" to="/login" role="button">Login</Link>
       <Link className="btn btn-primary mx-2" to="/signup" role="button">SignUp</Link> */}
-      </form> : <Link className="btn btn-secondary mx-3" onClick={()=>{localStorage.removeItem('token'); usealert("logged out ")}} to="/" role="button">LogOut</Link> }
+      </form> : <Link className="btn btn-secondary " onClick={()=>{localStorage.removeItem('token'); usealert("logged out ")}} to="/" role="button">LogOut</Link> }
     </div>
   </div>
 </nav>

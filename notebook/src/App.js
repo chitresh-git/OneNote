@@ -24,6 +24,8 @@ import Addnote from './components/Addnote';
 import Notes from './components/Note';
 import Userdetail from './components/Userdetail';
 import Expandnote from './components/Expandnote';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 
 function App(props) {
@@ -58,12 +60,13 @@ useEffect(() => {
     <Route exact path='/shownote'  element={<Notes/>}/>
     <Route exact path='/userdetail'  element={<Userdetail/>}/>
     <Route exact path='/expandnote'  element={<Expandnote/>}/>
+    <Route exact path='/contact'  element={<Contact/>}/>
 
 
     </Routes>
 
    </div>
-
+ <Footer/>
     </Router>
 
     </NoteState>

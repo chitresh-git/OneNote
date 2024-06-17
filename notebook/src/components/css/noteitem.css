@@ -25,7 +25,7 @@
   
   #noteitem{
       border: 0.1vw solid black;
-      height: 15vw;
+      height: 20vw;
       overflow: auto;
       background-color: black;
     }
@@ -47,3 +47,25 @@
     background-color: rgb(164, 164, 164);
   }
   
+
+@media (max-width: 768px) {
+  #notetitle {
+    padding: 1vw;
+    font-size: 4vw;
+  }
+
+  #noteitem {
+    height: auto;
+    max-height: 80vw;
+    border: 0.2vw solid black;
+  }
+
+  #noteitem:hover {
+    transform: none;
+  }
+
+  .modal-content {
+    padding: 2vw;
+  }
+} 
+

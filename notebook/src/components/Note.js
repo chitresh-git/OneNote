@@ -83,10 +83,7 @@ const Notes = () => {
                                     <input type="text" className="form-control my-1" id="title" name='title' value={selectednote.title} onChange={onChange} aria-describedby="emailHelp" minLength={2}required />
 
                                 </div>
-                                {/* <div className="form-group my-3">
-                                    <label htmlFor="description">DESCRIPTION</label>
-                                    <input type="text" className="form-control my-1" id="description" name='description' value={selectednote.description} onChange={onChange} />
-                                </div> */}
+                       
 
                                 <div class="my-3">
                                     <label htmlFor="description">DESCRIPTION</label>

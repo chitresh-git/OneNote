@@ -1,100 +1,59 @@
-section2::before {
-    /* this is the second image of the page */
-    
-    opacity: 1;
-    z-index: -1;
-    background-image: url(https://images.unsplash.com/photo-1616593772450-6220bc809944?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG5vdGVib29rfGVufDB8MHwwfHx8MA%3D%3D);
-    background-repeat: no-repeat;
-    /* background-size: 60vw;
-    height: 45vw;
-    width: 60vw; */
-    background-size: 70vw;
-    height: 45vw;
-    width: 64vw;
-    position: absolute;
-    left: 0vw;
-    content: "";
-  
-    
-    /* animation: backpic 50s infinite; */
+
+#titlename {
+  padding-top: 2vw; /* Adjusted padding for better spacing */
+  font-size: 8vw; /* Adjusted font size for mobile */
+  font-family: 'Kdam Thmor Pro', sans-serif;
+  text-align: center; /* Centered text */
+  color: black;
+}
+
+#type {
+  color: rgb(3, 3, 0);
+}
+
+#subtype {
+  font-family: 'Kdam Thmor Pro', sans-serif;
+  margin-top: 1vw; /* Adjusted margin for spacing */
+  text-align: center; /* Centered text */
+ 
+}
+
+#about {
+  width: 80%; /* Adjusted width for mobile */
+  margin: 0 auto; /* Centered horizontally */
+  color: rgb(0, 0, 0);
+  text-align: center; /* Centered text */
+}
+
+#author {
+  color: rgb(0, 0, 0);
+  font-size: 4vw; /* Adjusted font size for mobile */
+  text-align: center; /* Centered text */
+  font-family: cursive;
+}
+
+/* Media query for mobile responsiveness */
+@media (max-width: 768px) {
+  section2::before {
+    height: 100vw; /* Adjusted height for mobile */
   }
-  
-  section2{
-    /* background-color: black; */
-    z-index: 1;
+
+  #titlename {
+    padding-top: 10vw; /* Increased padding for better spacing */
+    font-size: 12vw; /* Increased font size for mobile */
   }
-  
-  
-  .cardlogin{
-    width: 23vw;
-    float: right;
-    text-align: center;
-    display: inline;
-    top: 5vw;
-    border-radius: 3vw;
-    border:0.1vw solid white;
+
+  #subtype {
+    margin-top: 2vw; /* Increased margin for spacing */
   }
-  
-  
-  .divide{
-    background-color: white;
-    height: 1vw;
+
+  #about {
+    width: 90%; /* Adjusted width for smaller screens */
   }
-  
-  .cardlogin:hover{
-    /* box-shadow: 1vw 1vw 1vw black; */
-    transform: scale(1.01);
+
+  #author {
+    font-size: 6vw; /* Increased font size for mobile */
   }
-  #signup:hover{
-    background-color: rgb(83, 83, 83);
-    border-radius: 3vw 3vw 0vw 0vw;
-  }
-  #login:hover{
-    background-color: rgb(83, 83, 83);
-    border-radius: 0vw 0vw 3vw 3vw;
-  }
-  
-  #titlename{
-   padding-top: 1.5vw;
-    font-size:6vw;
-    text-shadow: 0.1vw 0.1vw rgb(255, 255, 255);
-    font-family: 'Kdam Thmor Pro', sans-serif;
-  
-    /* float: left; */
-  }
-  #type{
-    color:yellow;
-  }
-  #subtype{
-    /* font-family: 'Roboto Mono', monospace; */
-    font-family: 'Kdam Thmor Pro', sans-serif;
-    margin-top: 0vw;
-    float: left;
-    margin-left: 15vw;
-    text-shadow: 0.1vw 0.1vw rgb(0, 0, 0);
-    /* display: flex; */
-  }
-  
-  
-  
-  .fa-brands{
-    color: white;
-  transform: scale(3);
-  }
-  .fa-brands:hover{
-    color: rgb(203, 203, 203);
-  }
-  
-  #about{
-    width: 50vw;
-    float: left;
-    color: rgb(255, 255, 255);
-    text-shadow: 0.1vw 0.1vw rgb(0, 0, 0);
-    
-  }
-  #author{
-    color: yellow;
-    text-shadow: 0.5vw 0.3vw rgb(0, 0, 0);
-    font-size: 3vw;
-  
-  }
+}
+
+
