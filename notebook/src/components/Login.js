@@ -4,7 +4,7 @@ import Alertcont from '../context/notes/Alertcont'
 
 const Login = (props) => {
   // const host = "http://localhost:3005"
-  const host = "https://notebackend-1-l2ak.onrender.com/"
+  const host = "https://notebackend-1-l2ak.onrender.com"
   let navigate = useNavigate()
 
   const [cred, setCred] = useState({ email: "", password: "" })
