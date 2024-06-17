@@ -1,7 +1,7 @@
 // this file, contains the component which will show the alert at the top website
 import React, { useContext } from 'react'
 import Alertcont from '../context/notes/Alertcont'
-import './css/alerton.css'
+import './css/alert.css'
 
 function Alert(prop) {
 const context=useContext(Alertcont) // using the context api to use alert funtion defined in alertcont.js
