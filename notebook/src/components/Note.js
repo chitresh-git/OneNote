@@ -119,7 +119,7 @@ const Notes = () => {
                 </div>
             </h3>
             <div className='row '>
-                {notes.reverse().map((note)  => { // this will call Noteitem component htmlFor each note 
+                {notes.map((note)  => { // this will call Noteitem component htmlFor each note 
                     return <Noteitem note={note} updatenote={updatenote} />
                 })}
             </div>
