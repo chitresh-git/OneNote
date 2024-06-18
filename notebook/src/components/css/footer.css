@@ -1,22 +1,35 @@
 /* Footer styles */
+/* Root container styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.root-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure full viewport height */
+}
+
+/* Footer styles */
 .footer {
-    position: fixed; 
-    width: 100%; /* Full width of the viewport */
-    text-align: center;
-    background-color: black;
-    color: white;
-    padding: 0.5%;
-    bottom:0.1%;
-  }
-  
-  .footer-text {
-    color: white;
-    text-decoration: none;
-  }
-  
-  @media only screen and (max-width: 768px) {
-    .footer {
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  background-color: black;
+  color: white;
+  padding: 10px; /* Adjust padding as needed */
+  bottom: 0; /* Stick to the bottom of the viewport */
+}
+.footer-text {
+  color: white;
+  text-decoration: none;
+}
+@media only screen and (max-width: 768px) {
+  .footer {
       font-size: small; /* Adjust font size for smaller screens */
-    }
+      padding: 5px; /* Adjust padding for smaller screens if needed */
+      bottom: 0; /* Ensure it sticks to the bottom */
   }
-  
+}

@@ -112,14 +112,13 @@ const Notes = () => {
                 </div>
             </div>
 
-            <h1 className='m-3'>YOUR NOTES </h1>
             <h3>
 
                 <div className="container">
                     {notes.length === 0 && "NO NOTES TO DISPLAY"}
                 </div>
             </h3>
-            <div className='row my-3'>
+            <div className='row '>
                 {notes.map((note) => { // this will call Noteitem component htmlFor each note 
                     return <Noteitem note={note} updatenote={updatenote} />
                 })}

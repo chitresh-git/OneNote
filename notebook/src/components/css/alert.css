@@ -1,5 +1,7 @@
 .alerton{
     margin-top: 1%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 @media (max-width: 768px) {
     .alerton{

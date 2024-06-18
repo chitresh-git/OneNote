@@ -89,7 +89,7 @@ var fetchuser=require("../middleware/fetchuser")
       let user = await User.findOne({ email: req.body.email }) // this will return true if email is already exist 
   
       if (user) {
-        return res.status(400).json({ flag:false,error: "sorry this email is already exist " }) // if user exist then we will send bad request 
+        return res.status(400).json({ flag:false,error: "This email is already in use , Try another" }) // if user exist then we will send bad request 
       }
   
       const salt = await bcryptjs.genSalt(10) // this will generate salt for users password

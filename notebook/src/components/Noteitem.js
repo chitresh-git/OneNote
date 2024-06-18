@@ -46,7 +46,7 @@ const formattedTime = new Date(note.Date).toLocaleTimeString('en-US', {
 
   return (
     <>
-    <div className='col-md-4 my-3 '>
+    <div className='col-md-4 my-2 '>
 
 
 
@@ -78,7 +78,7 @@ const formattedTime = new Date(note.Date).toLocaleTimeString('en-US', {
           <p onClick={()=>{expand(note.title,note.description,note.tag)}}>
 
           <tag className="">- {note.tag}</tag>  {/* tag of our note  */}
-          <p className="card-text">{note.description}</p>    {/* description of our note  */}
+          <p className="card-text noteitem-text">{note.description}</p>    {/* description of our note  */}
         
         <hr />
           <p className="card-text">{formattedDate} at {formattedTime}</p>

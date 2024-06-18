@@ -3,11 +3,13 @@
 import React, { useState,useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Alertcont from '../context/notes/Alertcont'
+import './css/signupform.css'
 
 
 const Signup = () => {
-    // const host = "http://localhost:3005"
-    const host = "https://backend-z9fw.onrender.com" 
+    // const host = "https://backend-z9fw.onrender.com" 
+    const host = process.env.REACT_APP_BACKEND_URL;
+    console.log(host);
     let navigate = useNavigate() // creating a object for useNavigate
     
     const [cred, setCred] = useState({ name: "", email: "", password: "" })
@@ -57,10 +59,10 @@ const Signup = () => {
     }
 
     return (
-        <div className="container p-2 my-3">
-            <h2>CREATE ACCOUNT</h2>
+        <div className="container p-2 my-3  signupcontainer">
+            <h2 className='mx-2'>CREATE ACCOUNT</h2>
 
-            <div className='text-white bg-dark p-3 rounded my-2'>
+            <div className='text-white bg-dark p-3 rounded-4 my-2 signupform'>
 
                 <form onSubmit={handleClick}>
 
@@ -76,8 +78,8 @@ const Signup = () => {
                     </div>
                     <div className="form-group my-3 text-uppercase">
                         <label htmlFor="exampleInputPassword1">Password</label>
-                        <input type="password" className="form-control my-3" name="password" id="exampleInputPassword1" placeholder="Password" onChange={onChange} value={cred.password} minLength={4} required />
-                        <label id="emailHelp" className={`form-text text-capitalize text-danger ${demo.visibilty}`}>{demo.warning}</label>
+                        <input type="password" className="form-control my-3" name="password" id="exampleInputPassword1" placeholder="Password" onChange={onChange} value={cred.password} minLength={5} required />
+                        <label id="emailHelp" className={`form-text text-capitalize text-danger bg-dark ${demo.visibilty}`}>{demo.warning}</label>
                     </div>
 
 

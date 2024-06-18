@@ -66,7 +66,7 @@ useEffect(() => {
     </Routes>
 
    </div>
- <Footer/>
+ {/* <Footer/> */}
     </Router>
 
     </NoteState>

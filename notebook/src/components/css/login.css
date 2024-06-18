@@ -1,0 +1,17 @@
+.loginform {
+    width: 35%;
+}
+
+.logincontainer {
+    margin-left: 32%;  
+}
+
+@media (max-width: 768px) {
+    .loginform {
+        width: 100%;
+    }
+    
+    .logincontainer {
+        margin-left: 0%;  
+    }
+}

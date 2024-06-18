@@ -5,15 +5,17 @@ const Footer = () => {
     const email="chitresh.cm@gamil.com"
     return (
         <>
-           <div className="footcont">
+                 <div className="root-container">
 
-                <div class="card-header footer bg-dark text-white" >
+
+                <div class="card-header footer bg-dark text-white my-0" >
                     <Link to={`mailto:${email}`} className='footer-text'>
                         <a >chitresh.cm@gamil.com</a>
                     
                     </Link> 
                 </div>
-           </div>
+                 </div>
+        
 
             
         </>

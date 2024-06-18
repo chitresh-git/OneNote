@@ -11,44 +11,34 @@
   width: 100vw;
   /* Full width to center horizontally */
   margin-right: 30%;
-  border-radius: 5vw;
-
-
-
-
+  border-radius: 5vw !important; /* Added !important */
 }
 
 .homelogin {
   margin-left: 0px;
   width: 23vw;
   text-align: center;
-  text-align: center;
   display: inline;
   top: 1vw;
-  text-align: center;
-  display: inline;
-  top: 1vw;
-  border-radius: 5vw;
+  border-radius: 5vw !important; /* Added !important */
   transition: transform 0.3s ease;
   /* Smooth transform on hover */
   margin-right: 15%;
-
+  border: 0.1vw solid white;
 }
 
-#signup{
-  border-radius: 3vw 3vw 0vw 0vw;
+#signup {
+  border-radius: 3vw 3vw 0vw 0vw !important; /* Added !important */
 }
 
-
-#login{
-  border-radius: 0vw 0vw 3vw 3vw;
+#login {
+  border-radius: 0vw 0vw 3vw 3vw !important; /* Added !important */
 }
 
 .divide {
   background-color: white;
   height: 0.5vw;
 }
-
 
 .fa-brands {
   color: white;
@@ -60,24 +50,20 @@
 }
 
 @media (max-width: 768px) {
-
-
   .homelogin {
     width: 80vw;
     margin: 1vw auto;
     /* Center horizontally and add top margin */
-    border-radius: 10vw;
+    border-radius: 10vw !important; /* Added !important */
     margin-right: 12%;
+  }
 
+  #signup {
+    border-radius: 5vw 5vw 0vw 0vw !important; /* Added !important */
   }
-  
-  #signup{
-    border-radius: 5vw 5vw 0vw 0vw;
-  }
-  
-  
-  #login{
-    border-radius: 0vw 0vw 5vw 5vw;
+
+  #login {
+    border-radius: 0vw 0vw 5vw 5vw !important; /* Added !important */
   }
 
   #subtype {
@@ -93,6 +79,4 @@
   .divide {
     height: 3vw;
   }
-
-
 }

@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Alertcont from '../context/notes/Alertcont'
+import './css/login.css'
 
 const Login = (props) => {
-  // const host = "http://localhost:3005"
-  const host = "https://backend-z9fw.onrender.com"
+  const host = process.env.REACT_APP_BACKEND_URL;
+  // const host = "https://backend-z9fw.onrender.com"
   let navigate = useNavigate()
 
   const [cred, setCred] = useState({ email: "", password: "" })
@@ -60,9 +61,9 @@ const Login = (props) => {
   }
 
   return (
-    <div className="container">
-      <h2 className='my-3'>LOGIN</h2>
-      <div className='text-white bg-dark p-3 rounded my-2'>
+    <div className="container  logincontainer">
+      <h2 className='my-3 mx-2'>LOGIN</h2>
+      <div className='text-white bg-dark p-3 rounded-4 my-2  loginform'>
 
         <form onSubmit={handleClick}>
           <div className="form-group my-3 text-uppercase">
