@@ -18,6 +18,8 @@ const Notes = () => {
     const context2 = useContext(Alertcont)
     const { usealert } = context2
 
+    const reversedNotes = [...notes].reverse();  // revering the order of notes list 
+
     useEffect(() => {
         if (localStorage.getItem('token')) {
 
@@ -119,7 +121,7 @@ const Notes = () => {
                 </div>
             </h3>
             <div className='row '>
-                {notes.map((note)  => { // this will call Noteitem component htmlFor each note 
+                {reversedNotes.map((note)  => { // this will call Noteitem component htmlFor each note 
                     return <Noteitem note={note} updatenote={updatenote} />
                 })}
             </div>
