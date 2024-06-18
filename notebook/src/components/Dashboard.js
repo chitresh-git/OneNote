@@ -20,7 +20,7 @@ const Dashboard = () => {
 
   let desc, ltitle, count, start;
   if (notes.length > 0) {
-    const lastnote = notes[0];
+    const lastnote = notes[notes.length-1];
     ltitle = lastnote.title + " ,";
     desc = lastnote.description;
     count = notes.length;
