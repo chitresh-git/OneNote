@@ -3,7 +3,6 @@ import { useState } from "react";
 // component for client side CRUD operations of our notes 
 const NoteState=(props)=>{
   const host = process.env.REACT_APP_BACKEND_URL;
-  // const host = "https://backend-z9fw.onrender.com"
     const initailNote=[]
 
     const [notes,setNote]=useState(initailNote)

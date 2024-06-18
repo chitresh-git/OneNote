@@ -7,9 +7,7 @@ import './css/signupform.css'
 
 
 const Signup = () => {
-    // const host = "https://backend-z9fw.onrender.com" 
     const host = process.env.REACT_APP_BACKEND_URL;
-    console.log(host);
     let navigate = useNavigate() // creating a object for useNavigate
     
     const [cred, setCred] = useState({ name: "", email: "", password: "" })

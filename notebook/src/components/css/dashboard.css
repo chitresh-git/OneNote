@@ -1,11 +1,10 @@
-/* Existing CSS */
 .dashboard {
   width: 23vw;
   float: left;
   text-align: center;
   display: inline;
   top: 2vw;
-  border-radius: 5vw;
+  border-radius: 5vw !important; /* Added important tag */
   border: 0.1vw solid white;
 }
 
@@ -14,14 +13,12 @@
   height: 1vw;
 }
 
-
-
 #shownote {
-  border-radius: 3vw 3vw 0vw 0vw;
+  border-radius: 3vw 3vw 0vw 0vw !important; /* Added important tag */
 }
 
 #addnote {
-  border-radius: 0vw 0vw 3vw 3vw;
+  border-radius: 0vw 0vw 3vw 3vw !important; /* Added important tag */
 }
 
 .greeting {
@@ -63,8 +60,7 @@
   width: 100vw;
   position: relative;
   background-color: #ffffff;
-  border-radius: 5vw;
-
+  border-radius: 5vw !important; /* Added important tag */
 }
 
 .left-column {
@@ -84,8 +80,7 @@
     flex-direction: column;
     align-items: center;
     padding: 0; 
-    border-radius: 10vw;
-
+    border-radius: 10vw !important; /* Added important tag */
   }
 
   .left-column, .right-column {
@@ -106,7 +101,6 @@
     align-items: center;
     margin-bottom: 100%;
     margin-right: 8%;
-
   }
 
   .dashboard {
@@ -114,7 +108,14 @@
     float: none;
     top: 0;
     margin-right: 8%;
-    border-radius: 10vw;
+    border-radius: 10vw !important; /* Added important tag */
+  }
+  #shownote {
+    border-radius: 5vw 5vw 0vw 0vw !important; /* Added important tag */
+  }
+  
+  #addnote {
+    border-radius: 0vw 0vw 5vw 5vw !important; /* Added important tag */
   }
 
   .greeting, .lastnote, #typednote {
@@ -126,6 +127,6 @@
 
   #typednote {
     height: auto;
-    font-size:4vw;
+    font-size: 4vw;
   }
 }

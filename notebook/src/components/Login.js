@@ -5,7 +5,6 @@ import './css/login.css'
 
 const Login = (props) => {
   const host = process.env.REACT_APP_BACKEND_URL;
-  // const host = "https://backend-z9fw.onrender.com"
   let navigate = useNavigate()
 
   const [cred, setCred] = useState({ email: "", password: "" })
