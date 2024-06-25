@@ -35,14 +35,23 @@ const Navbar = () => {
               <li className="nav-item">
                 <Link id='title' className={`nav-link ${location.pathname === "/about" ? "active" : ""}`} to="/about">ABOUT</Link>
               </li>
+
+              <li className="nav-item" >
+                <Link id='title' className="nav-link" to={`${localStorage.getItem('token') == null ? "/" : "/userdetail"}`}>ACCOUNT</Link></li>
+
+              <li className="nav-item" >
+                <Link id='title' className="nav-link" to="/contact">CONTACT</Link></li>
+
               <li className="nav-item dropdown">
+
                 <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  More
+                  MORE PRODUCTS
                 </a>
                 <ul className="dropdown-menu">
-
-                  <li><Link className="dropdown-item" to="/contact">Contact</Link></li>
-                  <li><Link className="dropdown-item" to={`${localStorage.getItem('token') == null ? "/" : "/userdetail"}`}>Account Details</Link></li>
+                  <li><a class="dropdown-item" href='https://one-note-zeta.vercel.app/' target='_blank' >OneNote</a></li>
+                  <li><a class="dropdown-item" href='https://global-post.vercel.app/' target='_blank' >Global Post</a></li>
+                  <li><a class="dropdown-item" href='https://ad-shield.vercel.app/' target='_blank' >Ad_Shield</a></li>
+                  <li><a class="dropdown-item" href='https://show-gen.vercel.app/' target='_blank' >ShowGen</a></li>
                 </ul>
               </li>
 
