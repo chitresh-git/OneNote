@@ -48,7 +48,7 @@ const Navbar = () => {
                   MORE PRODUCTS
                 </a>
                 <ul className="dropdown-menu">
-                  <li><a class="dropdown-item" href='https://one-note-zeta.vercel.app/' target='_blank' >OneNote</a></li>
+                  <li><a class="dropdown-item" href='https://notion-one-jade.vercel.app/' target='_blank' >Notion</a></li>
                   <li><a class="dropdown-item" href='https://global-post.vercel.app/' target='_blank' >Global Post</a></li>
                   <li><a class="dropdown-item" href='https://ad-shield.vercel.app/' target='_blank' >Ad_Shield</a></li>
                   <li><a class="dropdown-item" href='https://show-gen.vercel.app/' target='_blank' >ShowGen</a></li>
